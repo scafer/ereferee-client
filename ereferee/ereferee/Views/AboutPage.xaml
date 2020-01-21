@@ -15,7 +15,7 @@
         <ScrollView  HorizontalOptions="Center">
             <StackLayout Margin="5">
                 <StackLayout VerticalOptions="Center" Margin="5">
-                    <Image x:Name="logoImage" Source="ereferee_logo.png" WidthRequest="200"  HorizontalOptions="Center"/>
+                    <Image x:Name="LogoImage" Source="ereferee_logo.png" WidthRequest="200"  HorizontalOptions="Center"/>
                 </StackLayout>
 
                 <StackLayout Margin="20" WidthRequest="300" HorizontalOptions="Center">

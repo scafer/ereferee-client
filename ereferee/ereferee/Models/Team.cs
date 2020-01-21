@@ -1,9 +1,16 @@
-﻿namespace ereferee.Models
+﻿using Newtonsoft.Json;
+
+namespace ereferee.Models
 {
     public class Team
     {
-        public int teamId { get; set; }
-        public string name { get; set; }
-        public string color { get; set; }
+        [JsonProperty("teamId")]
+        public int Id { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("color")]
+        public string Color { get; set; }
     }
 }

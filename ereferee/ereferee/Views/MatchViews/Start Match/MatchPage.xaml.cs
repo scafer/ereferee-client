@@ -10,22 +10,22 @@ namespace ereferee.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MatchPage : ContentPage
     {
-        public MatchPage(MatchWithTeamsAndMembersAndEvents match)
+        public MatchPage(MatchData match)
         {
             InitializeComponent();
-            lb_matchpart.Text = Global.matchPart;
+            LbMatchpart.Text = App.matchPart;
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            BindingContext = Global.match;
+            BindingContext = App.match;
 
-            bt_home.BackgroundColor = Global.GetColor(Global.match.match.home_Color);
-            bt_visitor.BackgroundColor = Global.GetColor(Global.match.match.visitor_Color);
+            BtHome.BackgroundColor = App.GetColor(App.match.Match.HomeColor);
+            BtVisitor.BackgroundColor = App.GetColor(App.match.Match.VisitorColor);
 
-            lb_matchpart.Text = Global.matchPart;
+            LbMatchpart.Text = App.matchPart;
 
             _ = BackgroundAsync();
         }
@@ -34,21 +34,21 @@ namespace ereferee.Views
         {
             while (true)
             {
-                lb_stopwatch.Text = StopWatch.ShowTime();
+                LbStopwatch.Text = StopWatch.ShowTime();
                 await Task.Delay(1000);
             }
         }
 
         private void Bt_home_Clicked(object sender, EventArgs e)
         {
-            Global.idScore = 1;
-            Navigation.PushAsync(new MatchEventMemberPage(Global.match.homeTeam.teamId, Global.match.homeMembers));
+            App.idScore = 1;
+            Navigation.PushAsync(new MatchEventMemberPage(App.match.HomeTeam.Id, App.match.HomeMembers));
         }
 
         private void Bt_visitor_Clicked(object sender, EventArgs e)
         {
-            Global.idScore = 0;
-            Navigation.PushAsync(new MatchEventMemberPage(Global.match.visitorTeam.teamId, Global.match.visitorMembers));
+            App.idScore = 0;
+            Navigation.PushAsync(new MatchEventMemberPage(App.match.VisitorTeam.Id, App.match.VisitorMembers));
         }
 
         private void OtherEvent_Clicked(object sender, EventArgs e)

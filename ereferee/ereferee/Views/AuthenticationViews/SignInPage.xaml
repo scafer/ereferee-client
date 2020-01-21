@@ -16,32 +16,37 @@
         <ScrollView VerticalOptions="Center" HorizontalOptions="Center">
             <StackLayout Margin="5">
                 <StackLayout VerticalOptions="Center">
-                    <Image x:Name="logoImage" Source="ereferee_logo.png" WidthRequest="200"  HorizontalOptions="Center"/>
+                    <Image Source="ereferee_logo.png" WidthRequest="200"  HorizontalOptions="Center"/>
                 </StackLayout>
                 <StackLayout WidthRequest="300" Margin="0,25,0,25">
-                    <Entry x:Name="en_username" Placeholder="Username"/>
-                    <Entry x:Name="en_password" Placeholder="Password" IsPassword="True"/>
+                    <Entry x:Name="Username" Text="{Binding Username}" Placeholder="Username"/>
+                    <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password" IsPassword="True"/>
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Save:" VerticalOptions="Center"/>
-                        <Switch x:Name="sw_save" Toggled="Save_Toggled" VerticalOptions="Center"/>
+                        <Switch x:Name="SwSave" Toggled="Save_Toggled" VerticalOptions="Center"/>
                     </StackLayout>
-                    <Button Clicked="SignIn_Clicked" Text="Sign in"/>
-                    <Button Clicked="SignUp_Clicked" Text="Sign up"/>
+                    <Button Text="Sign in" Command="{Binding SignInCommand}"/>
+                    <Button Text="Sign up" Command="{Binding SignUpViewCommand}"/>
                 </StackLayout>
                 <StackLayout>
                     <Label Text="Forgot password?" HorizontalOptions="Center">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="ForgotPassword_Tapped"/>
+                            <TapGestureRecognizer Command="{Binding ForgotPasswordViewCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="Settings" HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SettingsViewCommand}"/>
                         </Label.GestureRecognizers>
                     </Label>
                     <Label Text="About" HorizontalOptions="Center">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="About_Tapped"/>
+                            <TapGestureRecognizer Command="{Binding AboutViewCommand}"/>
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
-    
+
 </ContentPage>

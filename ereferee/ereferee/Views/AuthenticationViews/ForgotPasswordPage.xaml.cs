@@ -6,11 +6,11 @@ using Xamarin.Forms.Xaml;
 namespace ereferee.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SignUpPage : ContentPage
+    public partial class ForgotPasswordPage : ContentPage
     {
-        private User user = new User();
+        User user = new User();
 
-        public SignUpPage()
+        public ForgotPasswordPage()
         {
             InitializeComponent();
             BindingContext = new AuthenticationViewModel(Navigation, user);

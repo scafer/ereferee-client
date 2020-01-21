@@ -11,68 +11,67 @@ namespace ereferee.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StartMatchPage : ContentPage
     {
-        MatchWithTeamsAndMembersAndEvents match;
-        MatchWithTeams matchWithTeams;
+        MatchData match;
         int matchType;
 
-        public StartMatchPage(MatchWithTeams match, int type)
+        public StartMatchPage(MatchData match, int type)
         {
             InitializeComponent();
-            matchWithTeams = match;
+            this.match = match;
             BindingContext = match;
 
             matchType = type;
         }
 
-        protected async override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
 
             if (matchType == 0)
             {
-                Task<string> resultTask = Connection.GetPendingMatchById(matchWithTeams.match.matchId);
+                Task<string> resultTask = Match.GetPendingById(match.Match.Id);
                 string result = await resultTask;
 
-                match = JsonConvert.DeserializeObject<MatchWithTeamsAndMembersAndEvents>(result);
+                match = JsonConvert.DeserializeObject<MatchData>(result);
                 BindingContext = match;
             }
             else
             {
-                Task<string> resultTask = Connection.GetActiveMatchById(matchWithTeams.match.matchId);
+                Task<string> resultTask = Match.GetActiveById(match.Match.Id);
                 string result = await resultTask;
 
-                match = JsonConvert.DeserializeObject<MatchWithTeamsAndMembersAndEvents>(result);
+                match = JsonConvert.DeserializeObject<MatchData>(result);
                 BindingContext = match;
             }
 
-            homeTeamMembersList.ItemsSource = match.homeMembers;
-            visitorTeamMembersList.ItemsSource = match.visitorMembers;
+            homeTeamMembersList.ItemsSource = match.HomeMembers;
+            visitorTeamMembersList.ItemsSource = match.VisitorMembers;
         }
 
         private async void StartMatch_Clicked(object sender, EventArgs e)
         {
             StopWatch.Restart();
-            Global.matchID = match.match.matchId;
-            Global.matchPart = "1st Half";
+            App.matchId = match.Match.Id;
+            App.matchPart = "1st Half";
 
             if (matchType == 0)
             {
-                Task<string> taskResult = Connection.BeginMatch(matchWithTeams.match.matchId);
+                Task<string> taskResult = Match.Start(match.Match.Id);
                 string result = await taskResult;
 
 
                 await DisplayAlert("Message", result, "OK");
 
-                Global.match = match;
-                Global.homeScore = 0;
-                Global.visitorScore = 0;
+                App.match = match;
+                App.homeScore = 0;
+                App.visitorScore = 0;
                 await Navigation.PushAsync(new MatchPage(match));
             }
             else
             {
-                Global.match = match;
-                Global.homeScore = Global.match.match.home_Score; //not working
-                Global.visitorScore = Global.match.match.visitor_Score; //not working
+                App.match = match;
+                App.homeScore = App.match.Match.HomeScore; //not working
+                App.visitorScore = App.match.Match.VisitorScore; //not working
                 await Navigation.PushAsync(new MatchPage(match));
             }
         }

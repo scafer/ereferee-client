@@ -18,7 +18,7 @@ namespace ereferee.Views
             InitializeComponent();
         }
 
-        protected async override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
 
@@ -26,53 +26,39 @@ namespace ereferee.Views
             {
                 GetPendingMatches();
                 GetActiveMatches();
+
             }
             catch (Exception ex) { await DisplayAlert("Error:", ex.ToString(), "OK"); }
         }
 
-        async void GetPendingMatches()
+        private async void GetPendingMatches()
         {
-            Task<string> resultTask = Connection.GetData(Api.Url + Api.GetPendingMatches);
+            Task<string> resultTask = RestConnector.GetDataFromApi(RestConnector.PendingMatches);
             var result = await resultTask;
-            var obj = JsonConvert.DeserializeObject<List<MatchWithTeams>>(result);
+            var matches = JsonConvert.DeserializeObject<List<MatchData>>(result);
 
-            //await DisplayAlert("Message", result, "OK");
-            pendingMatchesList.ItemsSource = obj;
+            PendingMatchesList.ItemsSource = matches;
         }
 
-        async void GetActiveMatches()
+        private async void GetActiveMatches()
         {
-            Task<string> resultTask = Connection.GetData(Api.Url + Api.GetActiveMatches);
+            Task<string> resultTask = RestConnector.GetDataFromApi(RestConnector.ActiveMatches);
             var result = await resultTask;
-            var obj = JsonConvert.DeserializeObject<List<MatchWithTeams>>(result);
+            var matches = JsonConvert.DeserializeObject<List<MatchData>>(result);
 
-            //await DisplayAlert("Message", result, "OK");
-            activeMatchesList.ItemsSource = obj;
+            ActiveMatchesList.ItemsSource = matches;
         }
 
         private void PendingMatchesList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var match = e.SelectedItem as MatchWithTeams;
+            var match = e.SelectedItem as MatchData;
             Navigation.PushAsync(new StartMatchPage(match, 0));
         }
 
-        private async void PendingMatchesList_Refreshing(object sender, EventArgs e)
+        private void PendingMatchesList_Refreshing(object sender, EventArgs e)
         {
-            try
-            {
-                GetPendingMatches();
-            }
-            catch (Exception ex) { await DisplayAlert("Error:", ex.ToString(), "OK"); }
-            finally { pendingMatchesList.IsRefreshing = false; }
-        }
-
-        private async void PendingMenuItem_Clicked(object sender, EventArgs e)
-        {
-            var match = (sender as MenuItem).CommandParameter as MatchWithTeams;
-            var response = await DisplayAlert("Warning", "Are you sure?", "Yes", "Cancel");
-            if (response)
-                await Connection.DeleteMatch(match.match.matchId);
             GetPendingMatches();
+            PendingMatchesList.IsRefreshing = false;
         }
 
         private void ActiveMenuItem_Clicked(object sender, EventArgs e)
@@ -82,19 +68,14 @@ namespace ereferee.Views
 
         private void ActiveMatchesList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var match = e.SelectedItem as MatchWithTeams;
+            var match = e.SelectedItem as MatchData;
             Navigation.PushAsync(new StartMatchPage(match, 1));
         }
 
-        private async void ActiveMatchesList_Refreshing(object sender, EventArgs e)
+        private void ActiveMatchesList_Refreshing(object sender, EventArgs e)
         {
-            try
-            {
-                GetActiveMatches();
-            }
-            catch (Exception ex) { await DisplayAlert("Error:", ex.ToString(), "OK"); }
-            finally { activeMatchesList.IsRefreshing = false; }
-
+            GetActiveMatches();
+            ActiveMatchesList.IsRefreshing = false;
         }
     }
 }

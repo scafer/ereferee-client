@@ -26,19 +26,19 @@
                 </Grid.RowDefinitions>
 
                 <StackLayout Grid.ColumnSpan="2" VerticalOptions="Center">
-                    <Label x:Name="lb_stopwatch" FontSize="Large" FontAttributes="Bold"  HorizontalOptions="Center"/>
-                    <Label x:Name="lb_matchpart" FontSize="Small" HorizontalOptions="Center"/>
+                    <Label x:Name="LbStopwatch" FontSize="Large" FontAttributes="Bold"  HorizontalOptions="Center"/>
+                    <Label x:Name="LbMatchpart" FontSize="Small" HorizontalOptions="Center"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <Label Text="{Binding match.home_Score}" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="{Binding match.HomeScore}" FontSize="Large" FontAttributes="Bold"/>
                         <Label Text="  -  " FontSize="Large" FontAttributes="Bold"/>
-                        <Label Text="{Binding match.visitor_Score}" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="{Binding match.VisitorScore}" FontSize="Large" FontAttributes="Bold"/>
                     </StackLayout>
                 </StackLayout>
 
-                <Button x:Name="bt_home" Grid.Row="1" Grid.Column="0" Text="{Binding homeTeam.name}" Clicked="Bt_home_Clicked" FontSize="Medium" FontAttributes="Bold"/>
-                <Button x:Name="bt_visitor" Grid.Row="1" Grid.Column="1" Text="{Binding visitorTeam.name}" Clicked="Bt_visitor_Clicked" FontSize="Medium" FontAttributes="Bold"/>
+                <Button x:Name="BtHome" Grid.Row="1" Grid.Column="0" Text="{Binding homeTeam.Name}" Clicked="Bt_home_Clicked" FontSize="Medium" FontAttributes="Bold"/>
+                <Button x:Name="BtVisitor" Grid.Row="1" Grid.Column="1" Text="{Binding visitorTeam.Name}" Clicked="Bt_visitor_Clicked" FontSize="Medium" FontAttributes="Bold"/>
 
-                <StackLayout Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <StackLayout Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <Button Text="Pause" Clicked="Pause_Clicked" FontSize="Medium" FontAttributes="Bold"/>
                     <Button Text="Resume" Clicked="Resume_Clicked" FontSize="Medium" FontAttributes="Bold"/>
                     <Button Text="Other" Clicked="OtherEvent_Clicked" FontSize="Medium" FontAttributes="Bold"/>

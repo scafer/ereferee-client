@@ -1,4 +1,6 @@
-﻿using ereferee.Views;
+﻿using ereferee.Models;
+using ereferee.Views;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace ereferee
@@ -7,13 +9,25 @@ namespace ereferee
     {
         private const string UsernameKey = "Username";
         private const string PasswordKey = "Password";
-        private const string AuthKey = "false";
-        private const string TokenKey = "";
+        private const string AuthSaveKey = "false";
+        private const string ApiUrlKey = "";
+
+        //TODO: remove this variables
+        public static MatchData match;
+        public static int eventType;
+        public static int matchId;
+        public static int teamId;
+        public static int memberId;
+        public static int homeScore;
+        public static int visitorScore;
+        public static int idScore;
+        public static string matchTime;
+        public static string matchPart;
+        public static string description;
 
         public App()
         {
             InitializeComponent();
-
             MainPage = new NavigationPage(new SignInPage());
         }
 
@@ -32,48 +46,79 @@ namespace ereferee
             // Handle when your app resumes
         }
 
+        public static async void DisplayMessage(string title, string message, string cancel)
+        {
+            await App.Current.MainPage.DisplayAlert(title, message, cancel);
+        }
+
+        public static async void DisplayMessage(string title, string message, string cancel, string accept)
+        {
+            await App.Current.MainPage.DisplayAlert(title, message, accept, cancel);
+        }
+
         public string Username
         {
-            get
-            {
-                if (Properties.ContainsKey(UsernameKey))
-                    return Properties[UsernameKey].ToString();
-                return "";
-            }
-            set { Properties[UsernameKey] = value; }
+            get => Properties.ContainsKey(UsernameKey) ? Properties[UsernameKey].ToString() : "";
+            set => Properties[UsernameKey] = value;
         }
 
         public string Password
         {
-            get
-            {
-                if (Properties.ContainsKey(PasswordKey))
-                    return Properties[PasswordKey].ToString();
-                return "";
-            }
-            set { Properties[PasswordKey] = value; }
+            get => Properties.ContainsKey(PasswordKey) ? Properties[PasswordKey].ToString() : "";
+            set => Properties[PasswordKey] = value;
         }
 
         public string BasicAuth
         {
-            get
-            {
-                if (Properties.ContainsKey(AuthKey))
-                    return Properties[AuthKey].ToString();
-                return "false";
-            }
-            set { Properties[AuthKey] = value; }
+            get => Properties.ContainsKey(AuthSaveKey) ? Properties[AuthSaveKey].ToString() : "false";
+            set => Properties[AuthSaveKey] = value;
         }
 
-        public string Token
+        public string ApiUrl
         {
-            get
-            {
-                if (Properties.ContainsKey(TokenKey))
-                    return Properties[TokenKey].ToString();
-                return "";
-            }
-            set { Properties[TokenKey] = value; }
+            get => Properties.ContainsKey(ApiUrlKey) ? Properties[ApiUrlKey].ToString() : "";
+            set => Properties[ApiUrlKey] = value;
         }
+
+        public static Color GetColor(string colorName)
+        {
+            return NameToColor[colorName];
+        }
+
+        public static Color GetColor(object sender)
+        {
+            Picker picker = (Picker)sender;
+            Color color = Color.Default;
+
+            if (picker.SelectedIndex != -1)
+            {
+                string colorName = picker.Items[picker.SelectedIndex];
+                color = NameToColor[colorName];
+            }
+
+            return color;
+        }
+
+        public static int GetMemberRole(string roleName)
+        {
+            return RoleToName[roleName];
+        }
+
+        public static readonly Dictionary<string, int> RoleToName = new Dictionary<string, int>
+        {
+            {"Player", 1 }, {"Player-Captain", 2}
+        };
+
+        public static readonly Dictionary<string, Color> NameToColor = new Dictionary<string, Color>
+        {
+            { "Aqua", Color.Aqua }, { "Black", Color.Black },
+            { "Blue", Color.Blue }, { "Yellow", Color.Yellow },
+            { "Gray", Color.Gray }, { "Green", Color.Green },
+            { "Lime", Color.Lime }, { "Maroon", Color.Maroon },
+            { "Navy", Color.Navy }, { "Olive", Color.Olive },
+            { "Purple", Color.Purple }, { "Red", Color.Red },
+            { "Silver", Color.Silver }, { "Teal", Color.Teal },
+            { "White", Color.White }
+        };
     }
 }

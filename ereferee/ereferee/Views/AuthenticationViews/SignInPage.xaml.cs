@@ -1,7 +1,5 @@
-﻿using ereferee.Helpers;
-using ereferee.Models;
-using System;
-using System.Threading.Tasks;
+﻿using ereferee.Models;
+using ereferee.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,62 +8,24 @@ namespace ereferee.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignInPage : ContentPage
     {
+        private User user = new User();
+
         public SignInPage()
         {
             InitializeComponent();
+            BindingContext = new AuthenticationViewModel(Navigation, user);
         }
 
         protected override void OnAppearing()
         {
+            base.OnAppearing();
+
             var app = Application.Current as App;
-            en_username.Text = app.Username;
-            en_password.Text = app.Password;
-            sw_save.IsToggled = bool.Parse(app.BasicAuth);
+            Username.Text = app.Username;
+            Password.Text = app.Password;
+            SwSave.IsToggled = bool.Parse(app.BasicAuth);
 
             Save_Changed();
-
-            base.OnAppearing();
-        }
-
-        private async void SignIn_Clicked(object sender, EventArgs e)
-        {
-            if (!(string.IsNullOrEmpty(en_username.Text)) && !(string.IsNullOrEmpty(en_password.Text)))
-            {
-                try
-                {
-                    Task<AuthData> taskResult = Connection.SignIn(en_username.Text, en_password.Text);
-                    var result = await taskResult;
-
-                    if (result.token != null)
-                    {
-                        var app = Application.Current as App;
-                        app.Token = result.token;
-
-                        await Navigation.PushAsync(new SplashScreenPage());
-                    }
-                }
-                catch (Exception)
-                {
-                    await DisplayAlert("Error", "Authentication error.", "Ok");
-                }
-            }
-            else
-                await DisplayAlert("Error", "Invalid username or password.", "Ok");
-        }
-
-        private void SignUp_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushModalAsync(new SignUpPage());
-        }
-
-        private void ForgotPassword_Tapped(object sender, EventArgs e)
-        {
-            Navigation.PushModalAsync(new ForgotPasswordPage());
-        }
-
-        private void About_Tapped(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new AboutPage());
         }
 
         private void Save_Toggled(object sender, ToggledEventArgs e)
@@ -73,23 +33,23 @@ namespace ereferee.Views
             Save_Changed();
         }
 
-        void Save_Changed()
+        private void Save_Changed()
         {
             var app = Application.Current as App;
 
-            if (sw_save.IsToggled == true)
+            if (SwSave.IsToggled)
             {
-                app.Username = en_username.Text;
-                app.Password = en_password.Text;
-                app.BasicAuth = (sw_save.IsToggled).ToString();
+                app.Username = Username.Text;
+                app.Password = Password.Text;
+                app.BasicAuth = (SwSave.IsToggled).ToString();
             }
             else
             {
-                en_username.Text = string.Empty;
-                en_password.Text = string.Empty;
+                Username.Text = string.Empty;
+                Password.Text = string.Empty;
                 app.Username = string.Empty;
                 app.Password = string.Empty;
-                app.BasicAuth = (sw_save.IsToggled).ToString();
+                app.BasicAuth = (SwSave.IsToggled).ToString();
             }
         }
     }
