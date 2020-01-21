@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ereferee.Views.SignInPage" NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="Center" HorizontalOptions="Center">
+            <StackLayout Margin="5">
+                <StackLayout VerticalOptions="Center">
+                    <Image x:Name="logoImage" Source="ereferee_logo.png" WidthRequest="200"  HorizontalOptions="Center"/>
+                </StackLayout>
+                <StackLayout WidthRequest="300" Margin="0,25,0,25">
+                    <Entry x:Name="en_username" Placeholder="Username"/>
+                    <Entry x:Name="en_password" Placeholder="Password" IsPassword="True"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Save:" VerticalOptions="Center"/>
+                        <Switch x:Name="sw_save" Toggled="Save_Toggled" VerticalOptions="Center"/>
+                    </StackLayout>
+                    <Button Clicked="SignIn_Clicked" Text="Sign in"/>
+                    <Button Clicked="SignUp_Clicked" Text="Sign up"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Forgot password?" HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ForgotPassword_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="About" HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="About_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+    
+</ContentPage>
