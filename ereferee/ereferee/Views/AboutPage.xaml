@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ereferee.Views.AboutPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <ScrollView  HorizontalOptions="Center">
+            <StackLayout Margin="5">
+                <StackLayout VerticalOptions="Center" Margin="5">
+                    <Image x:Name="logoImage" Source="ereferee_logo.png" WidthRequest="200"  HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <StackLayout Margin="20" WidthRequest="300" HorizontalOptions="Center">
+                    <Label Text="Developed by:" FontAttributes="Bold"/>
+                    <Label Text=" - Sandro Ferreira"/>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="Center">
+                    <Image Source="" WidthRequest="200"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

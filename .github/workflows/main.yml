@@ -1,0 +1,24 @@
+name: Xamarin.Forms
+on: [push, pull_request]
+
+jobs:   
+  Android:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Android
+      run: |
+        cd ereferee
+        nuget restore
+        cd ereferee.Android
+        msbuild ereferee.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
+        
+  iOS:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: iOS
+      run: |
+        cd ereferee
+        nuget restore
+        msbuild ereferee.iOS/ereferee.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug

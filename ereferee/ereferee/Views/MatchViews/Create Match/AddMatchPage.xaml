@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ereferee.Views.AddMatchPage" Title="Match Details">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="Center" VerticalOptions="Center">
+            <StackLayout WidthRequest="500" Margin="5">
+                <StackLayout Margin="0,10,0,10">
+                    <Label Text="Date - Time" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Start Date:" VerticalOptions="Center"/>
+                        <DatePicker x:Name="DateStart" Format="dd/MM/yyyy" VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Start Time:" VerticalOptions="Center"/>
+                        <TimePicker x:Name="TimeStart" Format="HH:mm" VerticalOptions="Center"/>
+                    </StackLayout>
+                    <BoxView HeightRequest="1" Color="Black"/>
+                </StackLayout>
+
+                <StackLayout Margin="0,10,0,10">
+                    <Label Text="Home Team" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Entry x:Name="entryCell_home" Placeholder="Team Name"/>
+                    <Picker x:Name="colorPicker_home" Title="Select a color" WidthRequest="150" SelectedIndexChanged="ColorPicker_Home_SelectedIndexChanged"/>
+                    <BoxView x:Name="boxView_home" WidthRequest="45" HeightRequest="45"/>
+                    <BoxView HeightRequest="1" Color="Black"/>
+                </StackLayout>
+
+                <StackLayout Margin="0,10,0,10">
+                    <Label Text="Visitor Team" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Entry x:Name="entryCell_visitor" Placeholder="Team Name"/>
+                    <Picker x:Name="colorPicker_visitor" Title="Select a color" WidthRequest="150" SelectedIndexChanged="ColorPicker_Visitor_SelectedIndexChanged"/>
+                    <BoxView x:Name="boxView_visitor" WidthRequest="45" HeightRequest="45"/>
+                    <BoxView HeightRequest="1" Color="Black"/>
+                </StackLayout>
+
+                <Button x:Name="Next" Text="Next" Clicked="Next_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

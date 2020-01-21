@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ereferee.Views.MatchEventConfirmationPage" Title="Create Event">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <StackLayout WidthRequest="500" Margin="5">
+
+                <Label Text="Event Details" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Match Id:" FontAttributes="Bold"/>
+                    <Label x:Name="ec_matchid" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Team Id:" FontAttributes="Bold"/>
+                    <Label x:Name="ec_teamid" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Member Id" FontAttributes="Bold"/>
+                    <Label x:Name="ec_memberid" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Event Type:" FontAttributes="Bold"/>
+                    <Label x:Name="ec_eventtype" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Match Type:" FontAttributes="Bold"/>
+                    <Label x:Name="ec_matchtime" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Description:" FontAttributes="Bold"/>
+                    <Label x:Name="ec_description" />
+                </StackLayout>
+
+                <BoxView HeightRequest="1" Color="Black"/>
+
+                <Label Text="Add note:" FontAttributes="Bold"/>
+                <Entry x:Name="en_eventNote" Placeholder="Text here"/>
+
+                <Button Text="Register Event" Clicked="Button_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

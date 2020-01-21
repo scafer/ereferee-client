@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ereferee.Views.MainMenuPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <AbsoluteLayout>
+                    <BoxView Color="#6392F0" AbsoluteLayout.LayoutBounds="0,0,1,.2" AbsoluteLayout.LayoutFlags="SizeProportional"/>
+                    <Image Source="user_image.png" Aspect="AspectFit" AbsoluteLayout.LayoutBounds=".5,0,.4,.4" AbsoluteLayout.LayoutFlags="PositionProportional,SizeProportional"/>
+                </AbsoluteLayout>
+
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center" WidthRequest="300">
+                    <Button Text="Start Match" Clicked="StartMatch_Clicked"/>
+                    <Button Text="Create Match" Clicked="CreateMatch_Clicked"/>
+                    <Button Text="Match History" Clicked="PreviousMatches_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
