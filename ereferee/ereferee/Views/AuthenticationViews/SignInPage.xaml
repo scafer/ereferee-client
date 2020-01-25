@@ -18,7 +18,7 @@
                 <StackLayout VerticalOptions="Center">
                     <Image Source="ereferee_logo.png" WidthRequest="200"  HorizontalOptions="Center"/>
                 </StackLayout>
-                <StackLayout WidthRequest="300" Margin="0,25,0,25">
+                <StackLayout WidthRequest="300" Margin="0,25">
                     <Entry x:Name="Username" Text="{Binding Username}" Placeholder="Username"/>
                     <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password" IsPassword="True"/>
                     <StackLayout Orientation="Horizontal">

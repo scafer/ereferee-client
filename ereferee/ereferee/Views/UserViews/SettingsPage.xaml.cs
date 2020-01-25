@@ -14,22 +14,23 @@ namespace ereferee.Views
 
         protected override void OnAppearing()
         {
-            var app = Application.Current as App;
-            En_Url.Text = app.ApiUrl;
-
             base.OnAppearing();
+            Url.Text = ((App)Application.Current)?.ApiUrl;
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private async void SaveClicked(object sender, EventArgs e)
         {
-            var app = Application.Current as App;
-
             var response = await DisplayAlert("Alert", "Do you want to save?", "Yes", "Cancel");
             if (response)
             {
-                app.ApiUrl = En_Url.Text;
+                ((App)Application.Current).ApiUrl = Url.Text;
                 await Navigation.PopModalAsync();
             }
+        }
+
+        private async void CancelClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
         }
     }
 }

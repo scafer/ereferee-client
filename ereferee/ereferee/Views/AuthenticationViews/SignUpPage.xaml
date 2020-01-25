@@ -14,14 +14,14 @@
 
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Margin="5">
-            <StackLayout WidthRequest="300" Margin="0,30,0,30">
+            <StackLayout WidthRequest="300" Margin="0,25">
                 <Entry Placeholder="Username" Text="{Binding Username}"/>
                 <Entry Placeholder="E-mail" Text="{Binding Email}"/>
                 <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}"/>
             </StackLayout>
             <StackLayout>
-                <Button Text="Save" Command="{Binding SignUpCommand}"/>
-                <Button Text="Cancel" Command="{Binding CancelCommand}"/>
+                <Button Text="Register" BorderWidth="1" BorderColor="#0A6ED1" BackgroundColor="#0A6ED1" CornerRadius="8" TextColor="White" Command="{Binding SignUpCommand}"/>
+                <Button Text="Cancel" BorderColor="Silver" BackgroundColor="White" CornerRadius="8" TextColor="#0A6ED1" Command="{Binding CancelCommand}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

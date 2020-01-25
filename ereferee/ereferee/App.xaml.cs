@@ -87,15 +87,14 @@ namespace ereferee
 
         public static Color GetColor(object sender)
         {
-            Picker picker = (Picker)sender;
-            Color color = Color.Default;
+            var picker = (Picker)sender;
+            var color = Color.Default;
 
             if (picker.SelectedIndex != -1)
             {
-                string colorName = picker.Items[picker.SelectedIndex];
+                var colorName = picker.Items[picker.SelectedIndex];
                 color = NameToColor[colorName];
             }
-
             return color;
         }
 
