@@ -1,5 +1,4 @@
-﻿using ereferee.Helpers;
-using ereferee.Models;
+﻿using ereferee.Models;
 using Microcharts;
 using Newtonsoft.Json;
 using SkiaSharp;
@@ -13,14 +12,13 @@ namespace ereferee.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PreviousMatchDetailsPage : ContentPage
     {
-        MatchWithTeamsAndMembersAndEvents match;
-        MatchWithTeams matchWithTeams;
+        MatchData match;
 
-        public PreviousMatchDetailsPage(MatchWithTeams match)
+        public PreviousMatchDetailsPage(MatchData match)
         {
             InitializeComponent();
 
-            matchWithTeams = match;
+            this.match = match;
             BindingContext = match;
         }
 
@@ -31,49 +29,48 @@ namespace ereferee.Views
             GetMatchDetails();
         }
 
-        async void GetMatchDetails()
+        private async void GetMatchDetails()
         {
-            Task<string> resultTask = Connection.GetPreviousMatchById(matchWithTeams.match.matchId);
+            Task<string> resultTask = Match.GetPreviousById(match.Match.Id);
             string result = await resultTask;
 
-            match = JsonConvert.DeserializeObject<MatchWithTeamsAndMembersAndEvents>(result);
+            match = JsonConvert.DeserializeObject<MatchData>(result);
             BindingContext = match;
 
-            homeTeamMembersList.ItemsSource = match.homeMembers;
-            visitorTeamMembersList.ItemsSource = match.visitorMembers;
-            matchEventsList.ItemsSource = match.events;
+            HomeTeamMembersList.ItemsSource = match.HomeMembers;
+            VisitorTeamMembersList.ItemsSource = match.VisitorMembers;
+            MatchEventsList.ItemsSource = match.Events;
 
             DrawChart();
         }
 
-
-        void DrawChart()
+        private void DrawChart()
         {
             int hyellowcard = 0;
             int hredcard = 0;
             int vyellowcard = 0;
             int vredcard = 0;
 
-            foreach (Event events in match.events)
+            foreach (Event events in match.Events)
             {
-                foreach (TeamMember member in match.homeMembers)
+                foreach (TeamMember member in match.HomeMembers)
                 {
-                    if (events.memberID == member.memberID && events.eventType == 7)
+                    if (events.MemberId == member.Id && events.EventType == 7)
                     {
                         hyellowcard++;
                     }
-                    else if (events.memberID == member.memberID && events.eventType == 8)
+                    else if (events.MemberId == member.Id && events.EventType == 8)
                     {
                         hredcard++;
                     }
                 }
-                foreach (TeamMember member in match.visitorMembers)
+                foreach (TeamMember member in match.VisitorMembers)
                 {
-                    if (events.memberID == member.memberID && events.eventType == 7)
+                    if (events.MemberId == member.Id && events.EventType == 7)
                     {
                         vyellowcard++;
                     }
-                    else if (events.memberID == member.memberID && events.eventType == 8)
+                    else if (events.MemberId == member.Id && events.EventType == 8)
                     {
                         vredcard++;
                     }
@@ -111,7 +108,7 @@ namespace ereferee.Views
     TextColor = SKColor.Parse("000000")
     }
 };
-            Chart_Cards.Chart = new BarChart { Entries = entries };
+            ChartCards.Chart = new BarChart { Entries = entries };
 
         }
     }

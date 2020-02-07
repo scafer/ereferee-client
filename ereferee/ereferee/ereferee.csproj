@@ -21,9 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\AuthenticationViews\" />
     <Folder Include="Views\MatchViews\" />
-    <Folder Include="Views\UserViews\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -69,7 +67,7 @@
     <EmbeddedResource Update="Views\MatchViews\Start Match\StartMatchPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\UserViews\ForgotPasswordPage.xaml">
+    <EmbeddedResource Update="Views\AuthenticationViews\ForgotPasswordPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MainMenuPage.xaml">
@@ -81,7 +79,10 @@
     <EmbeddedResource Update="Views\AuthenticationViews\SignUpPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\AuthenticationViews\SplashScreenPage.xaml">
+    <EmbeddedResource Update="Views\UserViews\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\UserViews\SplashScreenPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\UserViews\UserSettingsPage.xaml">

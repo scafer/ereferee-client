@@ -1,7 +1,7 @@
 ﻿using ereferee.Helpers;
+using ereferee.Models;
 using System;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,12 +22,12 @@ namespace ereferee.Views
             {
                 try
                 {
-                    Task<string> resultTask = Connection.CreateEvent(2, Global.match.match.matchId, StopWatch.ShowTime());
-                    string result = await resultTask;
+                    var resultTask = Event.Add(2, App.match.Match.Id, StopWatch.ShowTime());
+                    await resultTask;
 
-                    Global.matchPart = "2st Half";
+                    App.matchPart = "2st Half";
 
-                    await Navigation.PushAsync(new MatchPage(Global.match));
+                    await Navigation.PushAsync(new MatchPage(App.match));
                 }
                 catch (Exception)
                 {
@@ -44,12 +44,12 @@ namespace ereferee.Views
             {
                 try
                 {
-                    Task<string> resultTask = Connection.CreateEvent(3, Global.match.match.matchId, StopWatch.ShowTime());
-                    string result = await resultTask;
+                    Task<string> resultTask = Event.Add(3, App.match.Match.Id, StopWatch.ShowTime());
+                    await resultTask;
 
-                    Global.matchPart = "Extra Time";
+                    App.matchPart = "Extra Time";
 
-                    await Navigation.PushAsync(new MatchPage(Global.match));
+                    await Navigation.PushAsync(new MatchPage(App.match));
                 }
                 catch (Exception)
                 {
@@ -66,16 +66,14 @@ namespace ereferee.Views
             {
                 try
                 {
-                    Task<string> resultTask = Connection.FinishMatch(Global.match.match.matchId, Global.homeScore, Global.visitorScore);
-                    string result = await resultTask;
-
+                    var resultTask = Match.Finish(App.match.Match.Id, App.homeScore, App.visitorScore);
+                    await resultTask;
                     await Navigation.PushAsync(new MainMenuPage());
                 }
                 catch (Exception)
                 {
                     await DisplayAlert("Error", "Communication error.", "OK");
                 }
-
             }
         }
     }
