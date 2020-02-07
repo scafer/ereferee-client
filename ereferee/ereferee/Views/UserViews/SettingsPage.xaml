@@ -10,7 +10,7 @@
             <StackLayout WidthRequest="300" Margin="0,25">
                 <Entry x:Name="Url" Placeholder="Server Url"/>
                 <Button Text="Save" BorderWidth="1" BorderColor="#0A6ED1" BackgroundColor="#0A6ED1" CornerRadius="8" TextColor="White" Clicked="SaveClicked"/>
-                <Button Text="Cancel" BorderColor="Silver" BackgroundColor="White" CornerRadius="8" TextColor="#0A6ED1" Clicked="CancelClicked"/>
+                <Button Text="Cancel" BorderWidth="1" BorderColor="Silver" BackgroundColor="White" CornerRadius="8" TextColor="#0A6ED1" Clicked="CancelClicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
