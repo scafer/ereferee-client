@@ -36,14 +36,13 @@ namespace ereferee.Views
                 Task<string> resultTask = RestConnector.PostObjectToApi(matchWithTeamsAndMembers, RestConnector.CreateMatch);
                 string result = await resultTask;
 
-                //await DisplayAlert("Result", result, "OK");
                 if (result != string.Empty)
                 {
                     await DisplayAlert("Message", "Match created successfully.", "OK");
                     await Navigation.PushAsync(new MainMenuPage());
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 await DisplayAlert("Error", "Communication error.", "OK");
             }
