@@ -1,7 +1,7 @@
 ﻿using ereferee.Helpers;
+using ereferee.Models;
 using System;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,12 +19,12 @@ namespace ereferee.Views
         {
             base.OnAppearing();
 
-            ec_matchid.Text = Global.matchID.ToString();
-            ec_teamid.Text = Global.teamId.ToString();
-            ec_memberid.Text = Global.memberId.ToString();
-            ec_eventtype.Text = Global.eventType.ToString();
-            ec_matchtime.Text = Global.matchTime;
-            ec_description.Text = Global.description;
+            EcMatchid.Text = App.matchId.ToString();
+            EcTeamid.Text = App.teamId.ToString();
+            EcMemberid.Text = App.memberId.ToString();
+            EcEventtype.Text = App.eventType.ToString();
+            EcMatchtime.Text = App.matchTime;
+            EcDescription.Text = App.description;
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -34,28 +34,28 @@ namespace ereferee.Views
             {
                 try
                 {
-                    if (string.IsNullOrEmpty(en_eventNote.Text))
+                    if (string.IsNullOrEmpty(EnEventNote.Text))
                     {
-                        en_eventNote.Text = "event";
+                        EnEventNote.Text = "event";
                     }
 
-                    Task<string> resultTask = Connection.CreateEvent(Global.eventType, Global.match.match.matchId, Global.teamId, Global.memberId, en_eventNote.Text.Trim(), StopWatch.ShowTime());
+                    Task<string> resultTask = Event.Add(App.eventType, App.match.Match.Id, App.teamId, App.memberId, EnEventNote.Text.Trim(), StopWatch.ShowTime());
                     string result = await resultTask;
 
                     await DisplayAlert("Result", result, "OK");
 
-                    if (Global.eventType == 5 && Global.idScore == 1)
+                    if (App.eventType == 5 && App.idScore == 1)
                     {
-                        Global.homeScore += 1;
-                        Global.match.match.home_Score = Global.homeScore;
+                        App.homeScore += 1;
+                        App.match.Match.HomeScore = App.homeScore;
                     }
-                    else if (Global.eventType == 5 && !(Global.idScore == 1))
+                    else if (App.eventType == 5 && App.idScore != 1)
                     {
-                        Global.visitorScore += 1;
-                        Global.match.match.visitor_Score = Global.visitorScore;
+                        App.visitorScore += 1;
+                        App.match.Match.VisitorScore = App.visitorScore;
                     }
 
-                    await Navigation.PushAsync(new MatchPage(Global.match));
+                    await Navigation.PushAsync(new MatchPage(App.match));
                 }
                 catch (Exception)
                 {

@@ -26,40 +26,40 @@
                 <Label Text="Match Details" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Label Text="{Binding match.home_Score}" FontSize="Medium" FontAttributes="Bold"/>
+                    <Label Text="{Binding Match.HomeScore}" FontSize="Medium" FontAttributes="Bold"/>
                     <Label Text="  -  " FontSize="Medium" FontAttributes="Bold"/>
-                    <Label Text="{Binding match.visitor_Score}" FontSize="Medium" FontAttributes="Bold"/>
+                    <Label Text="{Binding Match.VisitorScore}" FontSize="Medium" FontAttributes="Bold"/>
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Creation Date:" FontAttributes="Bold"/>
-                    <Label Text="{Binding match.dt_Creation}" />
+                    <Label Text="{Binding Match.CreationDate}" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Home Team Color:" FontAttributes="Bold"/>
-                    <Label Text="{Binding match.home_Color}" />
+                    <Label Text="{Binding Match.HomeColor}" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Visitor Team Color" FontAttributes="Bold"/>
-                    <Label Text="{Binding match.visitor_Color}" />
+                    <Label Text="{Binding Match.VisitorColor}" />
                 </StackLayout>
                 <BoxView HeightRequest="1" Color="Black"/>
 
                 <Label Text="Home Team Details" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Name:" FontAttributes="Bold"/>
-                    <Label Text="{Binding homeTeam.name}" />
+                    <Label Text="{Binding HomeTeam.Name}" />
                 </StackLayout>
 
                 <Label Text="Team Members:" FontAttributes="Bold"/>
-                <ListView x:Name="homeTeamMembersList" HeightRequest="150" HasUnevenRows="True">
+                <ListView x:Name="HomeTeamMembersList" HeightRequest="150" HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Vertical">
-                                    <Label Text="{Binding number, StringFormat='Number: {0}'}"/>
-                                    <Label Text="{Binding name, StringFormat='Name: {0}'}"/>
-                                    <Label Text="{Binding role, StringFormat='Role: {0}'}"/>
+                                    <Label Text="{Binding Number, StringFormat='Number: {0}'}"/>
+                                    <Label Text="{Binding Name, StringFormat='Name: {0}'}"/>
+                                    <Label Text="{Binding Role, StringFormat='Role: {0}'}"/>
                                     <BoxView HeightRequest="1" Color="LightGray"/>
                                 </StackLayout>
                             </ViewCell>
@@ -71,18 +71,18 @@
                 <Label Text="Visitor Team Details" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Name:" FontAttributes="Bold"/>
-                    <Label Text="{Binding visitorTeam.name}" />
+                    <Label Text="{Binding VisitorTeam.Name}" />
                 </StackLayout>
 
                 <Label Text="Team Members:" FontAttributes="Bold"/>
-                <ListView x:Name="visitorTeamMembersList" HeightRequest="150" HasUnevenRows="True">
+                <ListView x:Name="VisitorTeamMembersList" HeightRequest="150" HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Vertical" Padding="1">
-                                    <Label Text="{Binding number, StringFormat='Number: {0}'}"/>
-                                    <Label Text="{Binding name, StringFormat='Name: {0}'}"/>
-                                    <Label Text="{Binding role, StringFormat='Role: {0}'}"/>
+                                    <Label Text="{Binding Number, StringFormat='Number: {0}'}"/>
+                                    <Label Text="{Binding Name, StringFormat='Name: {0}'}"/>
+                                    <Label Text="{Binding Role, StringFormat='Role: {0}'}"/>
                                     <BoxView HeightRequest="1" Color="LightGray"/>
                                 </StackLayout>
                             </ViewCell>
@@ -94,18 +94,18 @@
                 <Label Text="Match Events" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
 
                 <Label Text="Cards Chart:" FontAttributes="Bold"/>
-                <forms:ChartView x:Name="Chart_Cards" HeightRequest="150"/>
-                
+                <forms:ChartView x:Name="ChartCards" HeightRequest="150"/>
+
                 <Label Text="Events List:" FontAttributes="Bold"/>
-                <ListView x:Name="matchEventsList" HeightRequest="150" HasUnevenRows="True">
+                <ListView x:Name="MatchEventsList" HeightRequest="150" HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Vertical" Padding="1">
-                                    <Label Text="{Binding memberID, StringFormat='Member Id: {0}'}"/>
-                                    <Label Text="{Binding dateTime, StringFormat='Date Time: {0}'}"/>
-                                    <Label Text="{Binding reg, StringFormat='Reg: {0}'}"/>
-                                    <Label Text="{Binding event_Description, StringFormat='Description: {0}'}"/>
+                                    <Label Text="{Binding MemberId, StringFormat='Member Id: {0}'}"/>
+                                    <Label Text="{Binding DateTime, StringFormat='Date Time: {0}'}"/>
+                                    <Label Text="{Binding Reg, StringFormat='Reg: {0}'}"/>
+                                    <Label Text="{Binding EventDescription, StringFormat='Description: {0}'}"/>
                                     <BoxView HeightRequest="1" Color="LightGray"/>
                                 </StackLayout>
                             </ViewCell>

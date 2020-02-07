@@ -10,9 +10,9 @@ namespace ereferee.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateMatchConfirmationPage : ContentPage
     {
-        MatchWithTeamsAndMembers matchWithTeamsAndMembers;
+        MatchData matchWithTeamsAndMembers;
 
-        public CreateMatchConfirmationPage(MatchWithTeamsAndMembers match)
+        public CreateMatchConfirmationPage(MatchData match)
         {
             InitializeComponent();
 
@@ -25,25 +25,24 @@ namespace ereferee.Views
 
             BindingContext = matchWithTeamsAndMembers;
 
-            homeTeamMembersList.ItemsSource = matchWithTeamsAndMembers.homeMembers;
-            visitorTeamMembersList.ItemsSource = matchWithTeamsAndMembers.visitorMembers;
+            HomeTeamMembersList.ItemsSource = matchWithTeamsAndMembers.HomeMembers;
+            VisitorTeamMembersList.ItemsSource = matchWithTeamsAndMembers.VisitorMembers;
         }
 
         async private void CreateMatch_Clicked(object sender, EventArgs e)
         {
             try
             {
-                Task<string> resultTask = Connection.PostData(matchWithTeamsAndMembers, Api.Url + Api.CreateMatch);
+                Task<string> resultTask = RestConnector.PostObjectToApi(matchWithTeamsAndMembers, RestConnector.CreateMatch);
                 string result = await resultTask;
 
-                //await DisplayAlert("Result", result, "OK");
                 if (result != string.Empty)
                 {
                     await DisplayAlert("Message", "Match created successfully.", "OK");
                     await Navigation.PushAsync(new MainMenuPage());
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 await DisplayAlert("Error", "Communication error.", "OK");
             }

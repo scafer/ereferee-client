@@ -5,21 +5,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ereferee.Views.MatchEventTypePage" Title="Event Type Selection">
-    
+
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS" Value="0,20,0,0" />
         </OnPlatform>
     </ContentPage.Padding>
-    
+
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
             <StackLayout WidthRequest="500" Margin="5">
-                <Button x:Name="bt_event5" Text="Goal" Clicked="Bt_event5_Clicked"/>
-                <Button x:Name="bt_event7" Text="Yellow Card" Clicked="Bt_event7_Clicked"/>
-                <Button x:Name="bt_event8" Text="Red Card" Clicked="Bt_event8_Clicked"/>
-                <Button x:Name="bt_event9" Text="Change" Clicked="Bt_event9_Clicked"/>
-                <Button x:Name="bt_event10" Text="Random Note" Clicked="Bt_event10_Clicked"/>
+                <Button Text="Goal" Clicked="Bt_event5_Clicked"/>
+                <Button Text="Yellow Card" Clicked="Bt_event7_Clicked"/>
+                <Button Text="Red Card" Clicked="Bt_event8_Clicked"/>
+                <Button Text="Change" Clicked="Bt_event9_Clicked"/>
+                <Button Text="Random Note" Clicked="Bt_event10_Clicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -15,8 +15,8 @@ namespace ereferee.Views
         {
             base.OnAppearing();
 
-            await logoImage.ScaleTo(0.9, 1500, Easing.Linear);
-            await logoImage.ScaleTo(1, 1000, Easing.Linear);
+            await LogoImage.ScaleTo(0.9, 1500, Easing.Linear);
+            await LogoImage.ScaleTo(1, 1000, Easing.Linear);
 
             //if (CrossConnectivity.Current.IsConnected)
             //{

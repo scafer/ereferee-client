@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ereferee.Views.ForgotPasswordPage">
+             x:Class="ereferee.Views.SplashScreenPage" NavigationPage.HasNavigationBar="False">
+
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS" Value="0,20,0,0" />
@@ -12,14 +13,12 @@
     </ContentPage.Padding>
 
     <ContentPage.Content>
-        <ScrollView  VerticalOptions="Center" HorizontalOptions="Center">
-            <StackLayout WidthRequest="300">
-                <Label Text="Insert your username or email to receive a new password." />
-                <Entry x:Name="en_username" Placeholder="Username"/>
-                <Entry x:Name="en_email" Placeholder="Email"/>
-                <Button Text="Email me" Clicked="EmailMe_Clicked"/>
-                <Button Text="Cancel" Clicked="Cancel_Clicked"/>
+        <Grid BackgroundColor="#FFFFFF">
+            <StackLayout VerticalOptions="Center" Margin="5">
+                <Image x:Name="LogoImage" Source="ereferee_logo.png" WidthRequest="200"  HorizontalOptions="Center"/>
             </StackLayout>
-        </ScrollView>
+
+            <Label Text="Version 0.3.5" FontAttributes="Bold" VerticalOptions="End" HorizontalOptions="Center" Margin="5"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

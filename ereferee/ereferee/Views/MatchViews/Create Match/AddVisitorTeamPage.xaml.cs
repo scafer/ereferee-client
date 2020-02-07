@@ -1,5 +1,4 @@
-﻿using ereferee.Helpers;
-using ereferee.Models;
+﻿using ereferee.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,9 +12,9 @@ namespace ereferee.Views
     public partial class AddVisitorTeamPage : ContentPage
     {
         ObservableCollection<TeamMember> _members = new ObservableCollection<TeamMember>();
-        MatchWithTeamsAndMembers matchWithTeamsAndMembers;
+        MatchData matchWithTeamsAndMembers;
 
-        public AddVisitorTeamPage(MatchWithTeamsAndMembers match)
+        public AddVisitorTeamPage(MatchData match)
         {
             InitializeComponent();
 
@@ -26,11 +25,11 @@ namespace ereferee.Views
         {
             base.OnAppearing();
 
-            membersList.ItemsSource = _members;
+            MembersList.ItemsSource = _members;
 
-            foreach (string roleName in Global.RoleToName.Keys)
+            foreach (string roleName in App.RoleToName.Keys)
             {
-                memberRolePicker.Items.Add(roleName);
+                MemberRolePicker.Items.Add(roleName);
             }
         }
 
@@ -42,24 +41,19 @@ namespace ereferee.Views
                 _members.Remove(member);
         }
 
-        private void MenuItem_Edit_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
         private void AddMember_Clicked(object sender, EventArgs e)
         {
-            if (!(string.IsNullOrEmpty(memberName.Text)) && !(string.IsNullOrEmpty(memberNumber.Text)) && memberRolePicker.SelectedIndex != -1)
+            if (!(string.IsNullOrEmpty(MemberName.Text)) && !(string.IsNullOrEmpty(MemberNumber.Text)) && MemberRolePicker.SelectedIndex != -1)
             {
                 TeamMember teamMember = new TeamMember();
-                teamMember.name = memberName.Text;
-                teamMember.number = int.Parse(memberNumber.Text);
+                teamMember.Name = MemberName.Text;
+                teamMember.Number = int.Parse(MemberNumber.Text);
 
-                string roleName = memberRolePicker.Items[memberRolePicker.SelectedIndex];
-                teamMember.role = Global.GetMemberRole(roleName);
+                string roleName = MemberRolePicker.Items[MemberRolePicker.SelectedIndex];
+                teamMember.Role = App.GetMemberRole(roleName);
 
                 _members.Add(teamMember);
-                membersList.ItemsSource = _members;
+                MembersList.ItemsSource = _members;
             }
             else
             {
@@ -71,7 +65,7 @@ namespace ereferee.Views
         {
             if (_members.Count > 0)
             {
-                matchWithTeamsAndMembers.visitorMembers = _members.ToList();
+                matchWithTeamsAndMembers.VisitorMembers = _members.ToList();
                 await Navigation.PushAsync(new CreateMatchConfirmationPage(matchWithTeamsAndMembers));
             }
             else

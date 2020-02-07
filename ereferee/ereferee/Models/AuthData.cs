@@ -1,9 +1,16 @@
-﻿namespace ereferee.Models
+﻿using Newtonsoft.Json;
+
+namespace ereferee.Models
 {
     public class AuthData
     {
-        public string token { get; set; }
-        public string tokenExpirationTime { get; set; }
-        public string id { get; set; }
+        [JsonProperty("token")]
+        public string Token { get; set; }
+
+        [JsonProperty("tokenExpirationTime")]
+        public string TokenExpirationTime { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
     }
 }

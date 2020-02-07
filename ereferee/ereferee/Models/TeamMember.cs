@@ -1,16 +1,32 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace ereferee.Models
 {
     public class TeamMember
     {
-        public int teamId { get; set; }
-        public int memberID { get; set; }
-        public int status { get; set; }
-        public int role { get; set; }
-        public int number { get; set; }
-        public DateTime dayStart { get; set; }
-        public string dayEnd { get; set; }
-        public string name { get; set; }
+        [JsonProperty("memberID")]
+        public int Id { get; set; }
+
+        [JsonProperty("teamId")]
+        public int TeamId { get; set; }
+
+        [JsonProperty("status")]
+        public int Status { get; set; }
+
+        [JsonProperty("role")]
+        public int Role { get; set; }
+
+        [JsonProperty("number")]
+        public int Number { get; set; }
+
+        [JsonProperty("dayStart")]
+        public DateTime DayStart { get; set; }
+
+        [JsonProperty("dayEnd")]
+        public string DayEnd { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
     }
 }
