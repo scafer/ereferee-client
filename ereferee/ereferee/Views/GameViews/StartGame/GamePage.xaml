@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ereferee.Views.GameViews.StartGame.MatchPage" Title="On-going Game" NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Grid WidthRequest="500" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.ColumnSpan="2" VerticalOptions="Center">
+                    <Label x:Name="LbStopwatch" FontSize="Large" FontAttributes="Bold"  HorizontalOptions="Center"/>
+                    <Label x:Name="LbMatchpart" FontSize="Small" HorizontalOptions="Center"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="{Binding match.HomeScore}" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="  -  " FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="{Binding match.VisitorScore}" FontSize="Large" FontAttributes="Bold"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <Button x:Name="BtHome" Grid.Row="1" Grid.Column="0" Text="{Binding homeTeam.Name}" Clicked="Bt_home_Clicked" FontSize="Medium" FontAttributes="Bold"/>
+                <Button x:Name="BtVisitor" Grid.Row="1" Grid.Column="1" Text="{Binding visitorTeam.Name}" Clicked="Bt_visitor_Clicked" FontSize="Medium" FontAttributes="Bold"/>
+
+                <StackLayout Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Pause" Clicked="Pause_Clicked" FontSize="Medium" FontAttributes="Bold"/>
+                    <Button Text="Resume" Clicked="Resume_Clicked" FontSize="Medium" FontAttributes="Bold"/>
+                    <Button Text="Other" Clicked="OtherEvent_Clicked" FontSize="Medium" FontAttributes="Bold"/>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

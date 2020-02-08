@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
 namespace ereferee.Helpers
 {
@@ -11,36 +10,35 @@ namespace ereferee.Helpers
     {
         //Authentication
         public static string token;
-        public const string SignIn = "/api/Auth/signIn";
-        public const string SignUp = "/api/Auth/signUp";
+        public const string SignIn = "/api/Authentication/signIn";
+        public const string SignUp = "/api/Authentication/signUp";
 
-        //Match
-        public const string CreateMatch = "/api/match/createMatch";
-        public const string BeginMatch = "/api/match/beginMatch";
-        public const string FinishMatch = "/api/match/finishMatch";
-        public const string PendingMatches = "/api/match/getPendingMatchs";
-        public const string PendingMatchById = "/api/match/getPendingMatchByID";
-        public const string ActiveMatches = "/api/match/getActiveMatchs";
-        public const string ActiveMatchById = "/api/match/getActiveMatchByID";
-        public const string PreviousMatches = "/api/match/getPreviousMatchs";
-        public const string PreviousMatchById = "/api/match/getPreviousMatchByID";
-        public const string CreateMatchEvents = "/api/match/createMatchEvents";
-        public const string DeleteMatch = "/api/match/deleteMatch";
+        //Game
+        public const string CreateGame = "/api/Game/createGameWithTeams";
+        public const string StartGame = "​/api​/Game​/startGame";
+        public const string FinishGame = "/api/Game/finishGame";
+        public const string GameDataById = "/api/Game/gameDataById";
+        public const string PendingGames = "/api/Game/pendingGames";
+        public const string ActiveGames = "/api/Game/activeGames";
+        public const string PreviousGames = "​/api/Game/previousGames";
+        public const string RegisterEvent = "/api/Game/registerEvent";
+        public const string DeleteGame = "/api/Game/deleteGame";
 
         //User
-        public const string ResetPassword = "/api/user/resetPassword";
-        public const string ChangePassword = "/api/user/changePassword";
-        public const string UserInfo = "/api/user/getUserInfo";
-        public const string AllUsers = "/api/user/getAllUsers";
+        public const string ResetPassword = "/api/User/resetPassword";
+        public const string ChangePassword = "​/api​/User​/changePassword";
+        public const string GetUserInfo = "/api/User/getUserInfo";
+        public const string GetAllUsers = "/api/User/getAllUsers";
 
-        public static readonly string[] UserKeys = new string[] { "Username", "Email", "Password", "oldPassword", "newPassword" };
-        public static readonly string[] MatchKeys = new string[] { "matchId", "eventType", "teamId", "memberId", "description", "matchTime", "homeScore", "visitorScore" };
+        public static readonly string[] UserKeys = new string[] { "username", "email", "password", "oldPassword", "newPassword" };
+        public static readonly string[] MatchKeys = new string[] { "gameId", "eventType", "teamId", "athleteId", "description", "gameTime", "homeScore", "visitorScore" };
 
         private const string ApiAuthenticationMode = "Authorization";
 
         private static string GetApiUrl()
         {
-            return (Application.Current as App)?.ApiUrl;
+            //return (Application.Current as App)?.ApiUrl;
+            return "https://ereferee-server.herokuapp.com";
         }
 
         private static string GetAuthenticationHeader() => "bearer" + " " + token;

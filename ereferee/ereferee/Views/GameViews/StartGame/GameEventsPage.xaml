@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ereferee.Views.UserViews.SplashScreenPage" NavigationPage.HasNavigationBar="False">
+             x:Class="ereferee.Views.GameViews.StartGame.MatchEventsPage" Title="Event Type Selection">
 
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
@@ -13,12 +13,12 @@
     </ContentPage.Padding>
 
     <ContentPage.Content>
-        <Grid BackgroundColor="#FFFFFF">
-            <StackLayout VerticalOptions="Center" Margin="5">
-                <Image x:Name="LogoImage" Source="ereferee_logo.png" WidthRequest="200"  HorizontalOptions="Center"/>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <StackLayout WidthRequest="500" Margin="5">
+                <Button Text="Start 2º half" Clicked="Event2Half_Clicked"/>
+                <Button Text="Start Extra Time" Clicked="EventExtraTime_Clicked"/>
+                <Button Text="Finish Game" Clicked="EventFinishMatch_Clicked"/>
             </StackLayout>
-
-            <Label Text="Version 0.3.5" FontAttributes="Bold" VerticalOptions="End" HorizontalOptions="Center" Margin="5"/>
-        </Grid>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

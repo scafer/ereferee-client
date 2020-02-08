@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ereferee.Views.GameViews.CreateGame;
+using ereferee.Views.GameViews.PreviousGames;
+using ereferee.Views.GameViews.StartGame;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

@@ -16,55 +16,87 @@
     <PackageReference Include="Microcharts.Forms" Version="0.7.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="System.Net.Http" Version="4.3.4" />
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991477" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\MatchViews\" />
+    <Compile Update="Views\GameViews\CreateGame\AddGamePage.xaml.cs">
+      <DependentUpon>AddGamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GameViews\CreateGame\SaveGamePage.xaml.cs">
+      <DependentUpon>SaveGamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GameViews\PreviousGames\PreviousGamesPage.xaml.cs">
+      <DependentUpon>PreviousGamesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GameViews\PreviousGames\PreviousGameDetailPage.xaml.cs">
+      <DependentUpon>PreviousGameDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GameViews\StartGame\GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GameViews\StartGame\GameEventSavePage.xaml.cs">
+      <DependentUpon>GameEventSavePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GameViews\StartGame\GameEventAthletePage.xaml.cs">
+      <DependentUpon>GameEventAthletePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GameViews\StartGame\GameEventsPage.xaml.cs">
+      <DependentUpon>GameEventsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GameViews\StartGame\GameEventTypePage.xaml.cs">
+      <DependentUpon>GameEventTypePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GameViews\StartGame\PendingGamesPage.xaml.cs">
+      <DependentUpon>PendingGamesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GameViews\StartGame\StartGamePage.xaml.cs">
+      <DependentUpon>StartGamePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Views\AboutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MatchViews\Create Match\AddHomeTeamPage.xaml">
+    <EmbeddedResource Update="Views\GameViews\CreateGame\AddHomeTeamPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MatchViews\Create Match\AddMatchPage.xaml">
+    <EmbeddedResource Update="Views\GameViews\CreateGame\AddGamePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MatchViews\Create Match\AddVisitorTeamPage.xaml">
+    <EmbeddedResource Update="Views\GameViews\CreateGame\AddVisitorTeamPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MatchViews\Create Match\CreateMatchConfirmationPage.xaml">
+    <EmbeddedResource Update="Views\GameViews\CreateGame\SaveGamePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MatchViews\Previous Matches\PreviousMatchDetailsPage.xaml">
+    <EmbeddedResource Update="Views\GameViews\PreviousGames\PreviousGameDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MatchViews\Previous Matches\PreviousMatchesPage.xaml">
+    <EmbeddedResource Update="Views\GameViews\PreviousGames\PreviousGamesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MatchViews\Start Match\MatchEventConfirmationPage.xaml">
+    <EmbeddedResource Update="Views\GameViews\StartGame\GameEventSavePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MatchViews\Start Match\MatchEventMemberPage.xaml">
+    <EmbeddedResource Update="Views\GameViews\StartGame\GameEventAthletePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MatchViews\Start Match\MatchEventsPage.xaml">
+    <EmbeddedResource Update="Views\GameViews\StartGame\GameEventsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MatchViews\Start Match\MatchEventTypePage.xaml">
+    <EmbeddedResource Update="Views\GameViews\StartGame\GameEventTypePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MatchViews\Start Match\MatchPage.xaml">
+    <EmbeddedResource Update="Views\GameViews\StartGame\GamePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MatchViews\Start Match\PendingMatchesPage.xaml">
+    <EmbeddedResource Update="Views\GameViews\StartGame\PendingGamesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MatchViews\Start Match\StartMatchPage.xaml">
+    <EmbeddedResource Update="Views\GameViews\StartGame\StartGamePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AuthenticationViews\ForgotPasswordPage.xaml">

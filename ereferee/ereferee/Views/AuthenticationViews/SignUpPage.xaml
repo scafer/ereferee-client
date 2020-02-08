@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ereferee.Views.SignUpPage" Title="Sign Up">
+             x:Class="ereferee.Views.AuthenticationViews.SignUpPage" Title="Sign Up">
 
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">

@@ -7,22 +7,25 @@ namespace ereferee.Models
 {
     public class Event
     {
-        [JsonProperty("matchID")]
-        public int MatchId { get; set; }
+        [JsonProperty("id")]
+        public int Id { get; set; }
 
-        [JsonProperty("userID")]
+        [JsonProperty("gameId")]
+        public int GameId { get; set; }
+
+        [JsonProperty("userId")]
         public int UserId { get; set; }
 
-        [JsonProperty("memberID")]
-        public int MemberId { get; set; }
+        [JsonProperty("athleteId")]
+        public int AthleteId { get; set; }
+
+        [JsonProperty("time")]
+        public string Time { get; set; }
 
         [JsonProperty("eventType")]
         public int EventType { get; set; }
 
-        [JsonProperty("dateTime")]
-        public string DateTime { get; set; }
-
-        [JsonProperty("event_Description")]
+        [JsonProperty("eventDescription")]
         public string EventDescription { get; set; }
 
         [JsonProperty("reg")]
@@ -40,7 +43,7 @@ namespace ereferee.Models
                 { RestConnector.MatchKeys[5], matchTime }
             };
 
-            Task<string> response = RestConnector.PostDataToApi(values, RestConnector.CreateMatchEvents);
+            Task<string> response = RestConnector.PostDataToApi(values, RestConnector.RegisterEvent);
             return await response;
         }
 
@@ -53,7 +56,7 @@ namespace ereferee.Models
                 { RestConnector.MatchKeys[5], matchTime }
             };
 
-            Task<string> response = RestConnector.PostDataToApi(values, RestConnector.CreateMatchEvents);
+            Task<string> response = RestConnector.PostDataToApi(values, RestConnector.RegisterEvent);
             return await response;
         }
     }
