@@ -7,7 +7,7 @@ namespace ereferee.Models
     public class GameData
     {
         [JsonProperty("Game")]
-        public Game? Match { get; set; }
+        public Game? Game { get; set; }
 
         [JsonProperty("homeTeam")]
         public Team? HomeTeam { get; set; }
@@ -15,11 +15,11 @@ namespace ereferee.Models
         [JsonProperty("visitorTeam")]
         public Team? VisitorTeam { get; set; }
 
-        [JsonProperty("homeMembers")]
-        public List<Athlete>? HomeMembers { get; set; }
+        [JsonProperty("homeAthletes")]
+        public List<Athlete>? HomeAthletes { get; set; }
 
-        [JsonProperty("visitorMembers")]
-        public List<Athlete>? VisitorMembers { get; set; }
+        [JsonProperty("visitorAthletes")]
+        public List<Athlete>? VisitorAthletes { get; set; }
 
         [JsonProperty("events")]
         public List<Event>? Events { get; set; }

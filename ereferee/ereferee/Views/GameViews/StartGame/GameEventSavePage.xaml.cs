@@ -39,7 +39,7 @@ namespace ereferee.Views.GameViews.StartGame
                         EnEventNote.Text = "event";
                     }
 
-                    Task<string> resultTask = Event.Add(App.eventType, App.Game.Match.Id, App.teamId, App.memberId, EnEventNote.Text.Trim(), StopWatch.ShowTime());
+                    Task<string> resultTask = Event.Add(App.eventType, App.Game.Game.Id, App.teamId, App.memberId, EnEventNote.Text.Trim(), StopWatch.ShowTime());
                     string result = await resultTask;
 
                     await DisplayAlert("Result", result, "OK");
@@ -47,12 +47,12 @@ namespace ereferee.Views.GameViews.StartGame
                     if (App.eventType == 5 && App.idScore == 1)
                     {
                         App.homeScore += 1;
-                        App.Game.Match.HomeScore = App.homeScore;
+                        App.Game.Game.HomeScore = App.homeScore;
                     }
                     else if (App.eventType == 5 && App.idScore != 1)
                     {
                         App.visitorScore += 1;
-                        App.Game.Match.VisitorScore = App.visitorScore;
+                        App.Game.Game.VisitorScore = App.visitorScore;
                     }
 
                     await Navigation.PushAsync(new MatchPage(App.Game));

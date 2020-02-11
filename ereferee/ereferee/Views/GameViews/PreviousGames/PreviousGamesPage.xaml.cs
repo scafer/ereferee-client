@@ -61,7 +61,7 @@ namespace ereferee.Views.GameViews.PreviousGames
                 var match = (sender as MenuItem).CommandParameter as GameData;
                 var response = await DisplayAlert("Warning", "Are you sure?", "Yes", "Cancel");
                 if (response)
-                    await Game.Delete(match.Match.Id);
+                    await Game.Delete(match.Game.Id);
 
                 GetPreviousMatches();
             }

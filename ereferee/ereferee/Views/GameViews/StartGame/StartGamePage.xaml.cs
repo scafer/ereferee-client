@@ -29,7 +29,7 @@ namespace ereferee.Views.GameViews.StartGame
 
             if (matchType == 0)
             {
-                Task<string> resultTask = Game.GetGameDataById(_game.Match.Id);
+                Task<string> resultTask = Game.GetGameDataById(_game.Game.Id);
                 string result = await resultTask;
 
                 _game = JsonConvert.DeserializeObject<GameData>(result);
@@ -37,26 +37,26 @@ namespace ereferee.Views.GameViews.StartGame
             }
             else
             {
-                Task<string> resultTask = Game.GetGameDataById(_game.Match.Id);
+                Task<string> resultTask = Game.GetGameDataById(_game.Game.Id);
                 string result = await resultTask;
 
                 _game = JsonConvert.DeserializeObject<GameData>(result);
                 BindingContext = _game;
             }
 
-            homeTeamMembersList.ItemsSource = _game.HomeMembers;
-            visitorTeamMembersList.ItemsSource = _game.VisitorMembers;
+            homeTeamMembersList.ItemsSource = _game.HomeAthletes;
+            visitorTeamMembersList.ItemsSource = _game.VisitorAthletes;
         }
 
         private async void StartMatch_Clicked(object sender, EventArgs e)
         {
             StopWatch.Restart();
-            App.matchId = _game.Match.Id;
+            App.matchId = _game.Game.Id;
             App.matchPart = "1st Half";
 
             if (matchType == 0)
             {
-                Task<string> taskResult = Game.Start(_game.Match.Id);
+                Task<string> taskResult = Game.Start(_game.Game.Id);
                 string result = await taskResult;
 
 
@@ -70,8 +70,8 @@ namespace ereferee.Views.GameViews.StartGame
             else
             {
                 App.Game = _game;
-                App.homeScore = App.Game.Match.HomeScore; //not working
-                App.visitorScore = App.Game.Match.VisitorScore; //not working
+                App.homeScore = App.Game.Game.HomeScore; //not working
+                App.visitorScore = App.Game.Game.VisitorScore; //not working
                 await Navigation.PushAsync(new MatchPage(_game));
             }
         }

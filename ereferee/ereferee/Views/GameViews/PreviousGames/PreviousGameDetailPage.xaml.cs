@@ -31,14 +31,14 @@ namespace ereferee.Views.GameViews.PreviousGames
 
         private async void GetMatchDetails()
         {
-            Task<string> resultTask = Game.GetGameDataById(_game.Match.Id);
+            Task<string> resultTask = Game.GetGameDataById(_game.Game.Id);
             string result = await resultTask;
 
             _game = JsonConvert.DeserializeObject<GameData>(result);
             BindingContext = _game;
 
-            HomeTeamMembersList.ItemsSource = _game.HomeMembers;
-            VisitorTeamMembersList.ItemsSource = _game.VisitorMembers;
+            HomeTeamMembersList.ItemsSource = _game.HomeAthletes;
+            VisitorTeamMembersList.ItemsSource = _game.VisitorAthletes;
             MatchEventsList.ItemsSource = _game.Events;
 
             DrawChart();
@@ -53,7 +53,7 @@ namespace ereferee.Views.GameViews.PreviousGames
 
             foreach (Event events in _game.Events)
             {
-                foreach (Athlete member in _game.HomeMembers)
+                foreach (Athlete member in _game.HomeAthletes)
                 {
                     if (events.AthleteId == member.Id && events.EventType == 7)
                     {
@@ -64,7 +64,7 @@ namespace ereferee.Views.GameViews.PreviousGames
                         hredcard++;
                     }
                 }
-                foreach (Athlete member in _game.VisitorMembers)
+                foreach (Athlete member in _game.VisitorAthletes)
                 {
                     if (events.AthleteId == member.Id && events.EventType == 7)
                     {

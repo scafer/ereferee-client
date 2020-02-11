@@ -25,11 +25,11 @@ namespace ereferee.Views.GameViews.CreateGame
 
             BindingContext = _gameWithTeamsAndMembers;
 
-            HomeTeamMembersList.ItemsSource = _gameWithTeamsAndMembers.HomeMembers;
-            VisitorTeamMembersList.ItemsSource = _gameWithTeamsAndMembers.VisitorMembers;
+            HomeTeamMembersList.ItemsSource = _gameWithTeamsAndMembers.HomeAthletes;
+            VisitorTeamMembersList.ItemsSource = _gameWithTeamsAndMembers.VisitorAthletes;
         }
 
-        async private void CreateMatch_Clicked(object sender, EventArgs e)
+        private async void CreateMatch_Clicked(object sender, EventArgs e)
         {
             try
             {

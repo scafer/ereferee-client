@@ -22,8 +22,8 @@ namespace ereferee.Views.GameViews.StartGame
 
             BindingContext = App.Game;
 
-            BtHome.BackgroundColor = App.GetColor(App.Game.Match.HomeColor);
-            BtVisitor.BackgroundColor = App.GetColor(App.Game.Match.VisitorColor);
+            BtHome.BackgroundColor = App.GetColor(App.Game.Game.HomeColor);
+            BtVisitor.BackgroundColor = App.GetColor(App.Game.Game.VisitorColor);
 
             LbMatchpart.Text = App.matchPart;
 
@@ -42,13 +42,13 @@ namespace ereferee.Views.GameViews.StartGame
         private void Bt_home_Clicked(object sender, EventArgs e)
         {
             App.idScore = 1;
-            Navigation.PushAsync(new MatchEventMemberPage(App.Game.HomeTeam.Id, App.Game.HomeMembers));
+            Navigation.PushAsync(new MatchEventMemberPage(App.Game.HomeTeam.Id, App.Game.HomeAthletes));
         }
 
         private void Bt_visitor_Clicked(object sender, EventArgs e)
         {
             App.idScore = 0;
-            Navigation.PushAsync(new MatchEventMemberPage(App.Game.VisitorTeam.Id, App.Game.VisitorMembers));
+            Navigation.PushAsync(new MatchEventMemberPage(App.Game.VisitorTeam.Id, App.Game.VisitorAthletes));
         }
 
         private void OtherEvent_Clicked(object sender, EventArgs e)

@@ -14,7 +14,7 @@ namespace ereferee.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         public INavigation Navigation;
-        public ICommand SetMatchCommand { get; set; }
+        public ICommand SetGameCommand { get; set; }
         public ICommand SetHomeMembersCommand { get; set; }
         public ICommand SetVisitorMembersCommand { get; set; }
         public ICommand CreateMatchCommand { get; set; }
@@ -29,10 +29,10 @@ namespace ereferee.ViewModels
 
         public CreateGameViewModel(INavigation navigation, GameData gameData)
         {
-            SetMatchCommand = new Command(SetMatchExecuted);
-            SetHomeMembersCommand = new Command(SetHomeMembersExecuted);
-            SetVisitorMembersCommand = new Command(SetVisitorMembersExecuted);
-            CreateMatchCommand = new Command(CreateMatchExecuted);
+            SetGameCommand = new Command(SetGameExecuted);
+            SetHomeMembersCommand = new Command(SetHomeAthletesExecuted);
+            SetVisitorMembersCommand = new Command(SetVisitorAthletesExecuted);
+            CreateMatchCommand = new Command(CreateGameExecuted);
             CancelCommand = new Command(CancelExecuted);
 
             this.Navigation = navigation;
@@ -41,8 +41,8 @@ namespace ereferee.ViewModels
 
         public Game Game
         {
-            get => gameData.Match;
-            set => gameData.Match = value;
+            get => gameData.Game;
+            set => gameData.Game = value;
         }
 
         public Team HomeTeam
@@ -59,17 +59,17 @@ namespace ereferee.ViewModels
 
         public List<Athlete> HomeAthletes
         {
-            get => gameData.HomeMembers;
-            set => gameData.HomeMembers = value;
+            get => gameData.HomeAthletes;
+            set => gameData.HomeAthletes = value;
         }
 
         public List<Athlete> VisitorAthletes
         {
-            get => gameData.VisitorMembers;
-            set => gameData.VisitorMembers = value;
+            get => gameData.VisitorAthletes;
+            set => gameData.VisitorAthletes = value;
         }
 
-        private async void SetMatchExecuted()
+        private async void SetGameExecuted()
         {
             if (!(string.IsNullOrEmpty(HomeTeam.Name)) && !(string.IsNullOrEmpty(VisitorTeam.Name)))
             {
@@ -82,17 +82,17 @@ namespace ereferee.ViewModels
             }
         }
 
-        private void SetHomeMembersExecuted()
+        private void SetHomeAthletesExecuted()
         {
             throw new NotImplementedException();
         }
 
-        private void SetVisitorMembersExecuted()
+        private void SetVisitorAthletesExecuted()
         {
             throw new NotImplementedException();
         }
 
-        private void CreateMatchExecuted()
+        private void CreateGameExecuted()
         {
             throw new NotImplementedException();
         }

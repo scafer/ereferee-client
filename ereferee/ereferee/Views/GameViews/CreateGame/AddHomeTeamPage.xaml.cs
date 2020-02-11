@@ -64,7 +64,7 @@ namespace ereferee.Views.GameViews.CreateGame
         {
             if (_members.Count > 0)
             {
-                _gameWithTeamsAndMembers.HomeMembers = _members.ToList();
+                _gameWithTeamsAndMembers.HomeAthletes = _members.ToList();
                 await Navigation.PushAsync(new AddVisitorTeamPage(_gameWithTeamsAndMembers));
             }
             else

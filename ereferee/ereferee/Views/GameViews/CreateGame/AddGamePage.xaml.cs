@@ -14,6 +14,10 @@ namespace ereferee.Views.GameViews.CreateGame
         public AddMatchPage()
         {
             InitializeComponent();
+            gameData.Game = new Game();
+            gameData.HomeTeam = new Team();
+            gameData.VisitorTeam = new Team();
+
             BindingContext = new CreateGameViewModel(Navigation, gameData);
         }
 

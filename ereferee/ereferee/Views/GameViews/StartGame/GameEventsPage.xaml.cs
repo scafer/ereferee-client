@@ -22,7 +22,7 @@ namespace ereferee.Views.GameViews.StartGame
             {
                 try
                 {
-                    var resultTask = Event.Add(2, App.Game.Match.Id, StopWatch.ShowTime());
+                    var resultTask = Event.Add(2, App.Game.Game.Id, StopWatch.ShowTime());
                     await resultTask;
 
                     App.matchPart = "2st Half";
@@ -44,7 +44,7 @@ namespace ereferee.Views.GameViews.StartGame
             {
                 try
                 {
-                    Task<string> resultTask = Event.Add(3, App.Game.Match.Id, StopWatch.ShowTime());
+                    Task<string> resultTask = Event.Add(3, App.Game.Game.Id, StopWatch.ShowTime());
                     await resultTask;
 
                     App.matchPart = "Extra Time";
@@ -66,7 +66,7 @@ namespace ereferee.Views.GameViews.StartGame
             {
                 try
                 {
-                    var resultTask = Game.Finish(App.Game.Match.Id, App.homeScore, App.visitorScore);
+                    var resultTask = Game.Finish(App.Game.Game.Id, App.homeScore, App.visitorScore);
                     await resultTask;
                     await Navigation.PushAsync(new MainMenuPage());
                 }
