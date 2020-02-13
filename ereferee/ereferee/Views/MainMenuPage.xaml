@@ -21,9 +21,9 @@
                 </AbsoluteLayout>
 
                 <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center" WidthRequest="300">
-                    <Button Text="Start Match" Clicked="StartMatch_Clicked"/>
-                    <Button Text="Create Match" Clicked="CreateMatch_Clicked"/>
-                    <Button Text="Match History" Clicked="PreviousMatches_Clicked"/>
+                    <Button Text="Start Game" Clicked="StartMatch_Clicked"/>
+                    <Button Text="Create Game" Clicked="CreateMatch_Clicked"/>
+                    <Button Text="Game History" Clicked="PreviousMatches_Clicked"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

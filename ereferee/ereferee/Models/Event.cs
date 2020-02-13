@@ -7,22 +7,25 @@ namespace ereferee.Models
 {
     public class Event
     {
-        [JsonProperty("matchID")]
-        public int MatchId { get; set; }
+        [JsonProperty("id")]
+        public int Id { get; set; }
 
-        [JsonProperty("userID")]
+        [JsonProperty("gameId")]
+        public int GameId { get; set; }
+
+        [JsonProperty("userId")]
         public int UserId { get; set; }
 
-        [JsonProperty("memberID")]
-        public int MemberId { get; set; }
+        [JsonProperty("athleteId")]
+        public int AthleteId { get; set; }
+
+        [JsonProperty("time")]
+        public string Time { get; set; }
 
         [JsonProperty("eventType")]
         public int EventType { get; set; }
 
-        [JsonProperty("dateTime")]
-        public string DateTime { get; set; }
-
-        [JsonProperty("event_Description")]
+        [JsonProperty("eventDescription")]
         public string EventDescription { get; set; }
 
         [JsonProperty("reg")]
@@ -30,30 +33,21 @@ namespace ereferee.Models
 
         public static async Task<string> Add(int eventType, int matchId, int teamId, int memberId, string description, string matchTime)
         {
-            var values = new Dictionary<string, string>
+            var evt = new Event
             {
-                { RestConnector.MatchKeys[1], eventType.ToString() },
-                { RestConnector.MatchKeys[0], matchId.ToString() },
-                { RestConnector.MatchKeys[2], teamId.ToString() },
-                { RestConnector.MatchKeys[3], memberId.ToString() },
-                { RestConnector.MatchKeys[4], description },
-                { RestConnector.MatchKeys[5], matchTime }
+                AthleteId = memberId, EventDescription = description, EventType = eventType, GameId = matchId, Id = 0,
+                Reg = "", Time = matchTime, UserId = 1
             };
 
-            Task<string> response = RestConnector.PostDataToApi(values, RestConnector.CreateMatchEvents);
+            Task<string> response = RestConnector.PostObjectToApi(evt, RestConnector.RegisterEvent);
             return await response;
         }
 
         public static async Task<string> Add(int eventType, int matchId, string matchTime)
         {
-            var values = new Dictionary<string, string>
-            {
-                { RestConnector.MatchKeys[1], eventType.ToString() },
-                { RestConnector.MatchKeys[0], matchId.ToString() },
-                { RestConnector.MatchKeys[5], matchTime }
-            };
+            var evt = new Event {EventType = eventType, GameId = matchId, Time = matchTime, UserId = 1};
 
-            Task<string> response = RestConnector.PostDataToApi(values, RestConnector.CreateMatchEvents);
+            Task<string> response = RestConnector.PostObjectToApi(evt, RestConnector.RegisterEvent);
             return await response;
         }
     }

@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ereferee.Views.SettingsPage">
+             x:Class="ereferee.Views.UserViews.SettingsPage">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Margin="5">
             <StackLayout WidthRequest="300" Margin="0,25">

@@ -1,14 +1,13 @@
 ﻿using ereferee.Helpers;
 using ereferee.Models;
 using ereferee.Views;
+using ereferee.Views.AuthenticationViews;
+using ereferee.Views.UserViews;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -50,7 +49,7 @@ namespace ereferee.ViewModels
             this.Navigation = navigation;
         }
 
-        public string UserId
+        public int UserId
         {
             get => user.Id;
             set => user.Id = value;
@@ -78,54 +77,30 @@ namespace ereferee.ViewModels
         {
             if (!(string.IsNullOrEmpty(Username)) && !(string.IsNullOrEmpty(Password)))
             {
-                var values = new Dictionary<string, string>
-                {
-                    { RestConnector.UserKeys[0], Username },
-                    { RestConnector.UserKeys[2], GenerateSha256String(Password) }
-                };
-
-                Task<string> response = RestConnector.PostDataToApi(values, RestConnector.SignIn);
+                var response = RestConnector.PostObjectToApi(new User(Username, GenerateSha256String(Password), Email), RestConnector.SignIn);
                 var result = JsonConvert.DeserializeObject<AuthData>(await response);
 
-                if (result != null)
+                if (!string.IsNullOrEmpty(result.Token))
                 {
                     RestConnector.token = result.Token;
                     await Navigation.PushAsync(new SplashScreenPage());
                 }
                 else
-                {
                     App.DisplayMessage("Error", "Invalid username or password.", "Ok");
-                }
             }
             else
-            {
                 App.DisplayMessage("Error", "Invalid username or password.", "Ok");
-            }
         }
 
         private async void SignUpExecuted()
         {
             if (!(string.IsNullOrEmpty(Username) && string.IsNullOrEmpty(Email) && string.IsNullOrEmpty(Password)))
             {
-                try
-                {
-                    var values = new Dictionary<string, string>
-                    {
-                        { RestConnector.UserKeys[0], Username },
-                        { RestConnector.UserKeys[1], Email },
-                        { RestConnector.UserKeys[2], GenerateSha256String(Password) }
-                    };
+                var response = RestConnector.PostObjectToApi(new User(Username, GenerateSha256String(Password), Email), RestConnector.SignUp);
+                var result = JsonConvert.DeserializeObject<SvcResult>(await response);
 
-                    Task<string> response = RestConnector.PostDataToApi(values, RestConnector.SignUp);
-                    var result = await response;
-
-                    App.DisplayMessage("Result", result, "OK");
-                    await Navigation.PopModalAsync();
-                }
-                catch (Exception)
-                {
-                    App.DisplayMessage("Error", "Communication error.", "OK");
-                }
+                App.DisplayMessage("Result", result.ErrorMessage, "OK");
+                await Navigation.PopModalAsync();
             }
             else
                 App.DisplayMessage("Error:", "Something is wrong.", "OK");
@@ -135,23 +110,11 @@ namespace ereferee.ViewModels
         {
             if (!(string.IsNullOrEmpty(Username)) || !(string.IsNullOrEmpty(Email)))
             {
-                try
-                {
-                    var values = new Dictionary<string, string>
-                    {
-                        { RestConnector.UserKeys[0], Username },
-                        { RestConnector.UserKeys[1], Email }
-                    };
+                var response = RestConnector.PostObjectToApi(new User(Username, null, Email), RestConnector.ResetPassword);
+                var result = JsonConvert.DeserializeObject<SvcResult>(await response);
 
-                    await RestConnector.PostDataToApi(values, RestConnector.ResetPassword);
-
-                    App.DisplayMessage("Message", "Check your inbox.", "Ok");
-                    await Navigation.PopModalAsync();
-                }
-                catch (Exception)
-                {
-                    App.DisplayMessage("Warning", "Communication error.", "OK");
-                }
+                App.DisplayMessage("Message", result.ErrorMessage, "Ok");
+                await Navigation.PopModalAsync();
             }
             else
                 App.DisplayMessage("Warning", "Invalid username or email.", "Ok");
