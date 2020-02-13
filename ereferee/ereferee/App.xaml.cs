@@ -1,5 +1,5 @@
 ﻿using ereferee.Models;
-using ereferee.Views;
+using ereferee.Views.AuthenticationViews;
 using System.Collections.Generic;
 using Xamarin.Forms;
 
@@ -13,7 +13,7 @@ namespace ereferee
         private const string ApiUrlKey = "";
 
         //TODO: remove this variables
-        public static MatchData match;
+        public static GameData Game;
         public static int eventType;
         public static int matchId;
         public static int teamId;
@@ -24,6 +24,9 @@ namespace ereferee
         public static string matchTime;
         public static string matchPart;
         public static string description;
+
+        public static string homeColor;
+        public static string visitorColor;
 
         public App()
         {

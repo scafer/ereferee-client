@@ -3,7 +3,7 @@ using ereferee.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace ereferee.Views
+namespace ereferee.Views.AuthenticationViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignUpPage : ContentPage

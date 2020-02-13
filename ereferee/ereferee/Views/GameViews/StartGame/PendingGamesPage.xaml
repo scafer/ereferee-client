@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ereferee.Views.GameViews.StartGame.PendingMatchesPage" Title="Gamees Selection">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="Center">
+            <StackLayout WidthRequest="500" Margin="5">
+                <StackLayout>
+                    <Label Text="Active Games" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <ListView x:Name="ActiveMatchesList" ItemSelected="ActiveMatchesList_ItemSelected" IsPullToRefreshEnabled="True" Refreshing="ActiveMatchesList_Refreshing" HasUnevenRows="True" HeightRequest="300">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Text="Delete" IsDestructive="True" CommandParameter="{Binding .}" Clicked="ActiveMenuItem_Clicked"/>
+                                    </ViewCell.ContextActions>
+                                    <StackLayout Orientation="Vertical" Padding="1">
+                                        <Label Text="{Binding HomeTeamId, StringFormat='Home Team: {0}'}"/>
+                                        <Label Text="{Binding VisitorTeamId, StringFormat='Visitor Team: {0}'}"/>
+                                        <Label Text="{Binding Status, StringFormat='Creation date: {0}'}"/>
+                                        <BoxView HeightRequest="1" Color="LightGray"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <BoxView HeightRequest="1" Color="Black"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Pending Games" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <ListView x:Name="PendingMatchesList" ItemSelected="PendingMatchesList_ItemSelected" IsPullToRefreshEnabled="True" Refreshing="PendingMatchesList_Refreshing" HasUnevenRows="True" HeightRequest="300">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Text="Delete" IsDestructive="True" CommandParameter="{Binding .}" Clicked="ActiveMenuItem_Clicked"/>
+                                    </ViewCell.ContextActions>
+                                    <StackLayout Orientation="Vertical" Padding="1">
+                                        <Label Text="{Binding HomeTeamId, StringFormat='Home Team: {0}'}"/>
+                                        <Label Text="{Binding VisitorTeamId, StringFormat='Visitor Team: {0}'}"/>
+                                        <Label Text="{Binding Status, StringFormat='Creation date: {0}'}"/>
+                                        <BoxView HeightRequest="1" Color="LightGray"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

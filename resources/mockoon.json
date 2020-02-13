@@ -1,0 +1,453 @@
+{
+    "source": "mockoon:1.7.0",
+    "data": [
+        {
+            "type": "environment",
+            "item": {
+                "uuid": "",
+                "name": "ereferee",
+                "endpointPrefix": "api",
+                "latency": 0,
+                "port": 3000,
+                "routes": [
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "auth/signIn",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyMyIsIm5iZiI6MTU3NDEwODc0MywiZXhwIjoxNTc0MTA5MzQzLCJpYXQiOjE1NzQxMDg3NDMsImlzcyI6ImVSZWZlcmVlREIiLCJhdWQiOiJlUmVmZXJlZURCIn0.tknwziKHHl2NDLYebRHkYfnCYY9y5n_MpA9NpCCfNm4\",\r\n    \"tokenExpirationTime\": 1574109343,\r\n    \"id\": \"1\"\r\n}",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "auth/signUp",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "User added successful",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "match/createMatch",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "true",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "match/beginMatch",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "true",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "match/finishMatch",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "true",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "match/getPendingMatchs",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "[\r\n  {\r\n    \"match\": {\r\n      \"matchId\": 62,\r\n      \"timeStart\": \"0001-01-01T00:00:00\",\r\n      \"home_Color\": \"Purple\",\r\n      \"visitor_Color\": \"Silver\",\r\n      \"status\": 0,\r\n      \"dt_Creation\": \"2019-09-25T21:33:20.927\",\r\n      \"matchOwnerId\": 1,\r\n      \"homeTeamId\": 123,\r\n      \"visitorId\": 124\r\n    },\r\n    \"homeTeam\": {\r\n      \"teamId\": 123,\r\n      \"name\": \"1\",\r\n      \"color\": \"Purple\"\r\n    },\r\n    \"visitorTeam\": {\r\n      \"teamId\": 124,\r\n      \"name\": \"2\",\r\n      \"color\": \"Silver\"\r\n    }\r\n  },\r\n  {\r\n    \"match\": {\r\n      \"matchId\": 63,\r\n      \"timeStart\": \"0001-01-01T00:00:00\",\r\n      \"home_Color\": \"Navy\",\r\n      \"visitor_Color\": \"Red\",\r\n      \"status\": 0,\r\n      \"dt_Creation\": \"2019-11-17T12:40:33.697\",\r\n      \"matchOwnerId\": 1,\r\n      \"homeTeamId\": 125,\r\n      \"visitorId\": 126\r\n    },\r\n    \"homeTeam\": {\r\n      \"teamId\": 125,\r\n      \"name\": \"DiVa\",\r\n      \"color\": \"Navy\"\r\n    },\r\n    \"visitorTeam\": {\r\n      \"teamId\": 126,\r\n      \"name\": \"Mary\",\r\n      \"color\": \"Red\"\r\n    }\r\n  }\r\n]",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "match/getPendingMatchByID",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\r\n  \"match\": {\r\n    \"matchId\": 62,\r\n    \"timeStart\": \"0001-01-01T00:00:00\",\r\n    \"home_Color\": \"Purple\",\r\n    \"visitor_Color\": \"Silver\",\r\n    \"status\": 0,\r\n    \"dt_Creation\": \"2019-09-25T21:33:20.927\",\r\n    \"matchOwnerId\": 1,\r\n    \"homeTeamId\": 123,\r\n    \"visitorId\": 124\r\n  },\r\n  \"homeTeam\": {\r\n    \"teamId\": 123,\r\n    \"name\": \"1\",\r\n    \"color\": \"Purple\"\r\n  },\r\n  \"visitorTeam\": {\r\n    \"teamId\": 124,\r\n    \"name\": \"2\",\r\n    \"color\": \"Silver\"\r\n  },\r\n  \"homeMembers\": [\r\n    {\r\n      \"teamId\": 123,\r\n      \"memberID\": 330,\r\n      \"status\": 0,\r\n      \"role\": 1,\r\n      \"number\": 1,\r\n      \"name\": \"1\"\r\n    }\r\n  ],\r\n  \"visitorMembers\": [\r\n    {\r\n      \"teamId\": 124,\r\n      \"memberID\": 331,\r\n      \"status\": 0,\r\n      \"role\": 1,\r\n      \"number\": 2,\r\n      \"name\": \"2\"\r\n    }\r\n  ],\r\n  \"events\": []\r\n}",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "match/getActiveMatchs",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "[\r\n  {\r\n    \"match\": {\r\n      \"matchId\": 0,\r\n      \"timeStart\": \"2019-11-18T20:53:08.962Z\",\r\n      \"timeEnd\": \"2019-11-18T20:53:08.962Z\",\r\n      \"home_Score\": 0,\r\n      \"home_Color\": \"string\",\r\n      \"visitor_Score\": 0,\r\n      \"visitor_Color\": \"string\",\r\n      \"status\": 0,\r\n      \"dt_Creation\": \"2019-11-18T20:53:08.962Z\",\r\n      \"matchOwnerId\": 0,\r\n      \"homeTeamId\": 0,\r\n      \"visitorId\": 0\r\n    },\r\n    \"homeTeam\": {\r\n      \"teamId\": 0,\r\n      \"name\": \"string\",\r\n      \"color\": \"string\"\r\n    },\r\n    \"visitorTeam\": {\r\n      \"teamId\": 0,\r\n      \"name\": \"string\",\r\n      \"color\": \"string\"\r\n    }\r\n  }\r\n]",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "match/getActiveMatchByID",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\r\n  \"match\": {\r\n    \"matchId\": 63,\r\n    \"timeStart\": \"2019-11-18T20:54:24.097\",\r\n    \"home_Color\": \"Navy\",\r\n    \"visitor_Color\": \"Red\",\r\n    \"status\": 1,\r\n    \"dt_Creation\": \"2019-11-17T12:40:33.697\",\r\n    \"matchOwnerId\": 1,\r\n    \"homeTeamId\": 125,\r\n    \"visitorId\": 126\r\n  },\r\n  \"homeTeam\": {\r\n    \"teamId\": 125,\r\n    \"name\": \"Team 1\",\r\n    \"color\": \"Navy\"\r\n  },\r\n  \"visitorTeam\": {\r\n    \"teamId\": 126,\r\n    \"name\": \"Team 2\",\r\n    \"color\": \"Red\"\r\n  },\r\n  \"homeMembers\": [\r\n    {\r\n      \"teamId\": 125,\r\n      \"memberID\": 332,\r\n      \"status\": 0,\r\n      \"role\": 2,\r\n      \"number\": 1,\r\n      \"name\": \"Player 1\"\r\n    }\r\n  ],\r\n  \"visitorMembers\": [\r\n    {\r\n      \"teamId\": 126,\r\n      \"memberID\": 333,\r\n      \"status\": 0,\r\n      \"role\": 2,\r\n      \"number\": 2,\r\n      \"name\": \"Player 2\"\r\n    }\r\n  ],\r\n  \"events\": []\r\n}",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "match/getPreviousMatchs",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "[\r\n  {\r\n    \"match\": {\r\n      \"matchId\": 35,\r\n      \"timeStart\": \"2019-06-22T18:03:38.747\",\r\n      \"timeEnd\": \"2019-06-23T22:54:13.95\",\r\n      \"home_Score\": 0,\r\n      \"home_Color\": \"Lime\",\r\n      \"visitor_Score\": 0,\r\n      \"visitor_Color\": \"Navy\",\r\n      \"status\": 2,\r\n      \"dt_Creation\": \"2019-06-22T18:03:30.937\",\r\n      \"matchOwnerId\": 1,\r\n      \"homeTeamId\": 69,\r\n      \"visitorId\": 70\r\n    },\r\n    \"homeTeam\": {\r\n      \"teamId\": 69,\r\n      \"name\": \"Team 1\",\r\n      \"color\": \"Lime\"\r\n    },\r\n    \"visitorTeam\": {\r\n      \"teamId\": 70,\r\n      \"name\": \"Team 2\",\r\n      \"color\": \"Navy\"\r\n    }\r\n  },\r\n  {\r\n    \"match\": {\r\n      \"matchId\": 36,\r\n      \"timeStart\": \"2019-06-22T19:53:33.023\",\r\n      \"timeEnd\": \"2019-06-22T19:56:48.59\",\r\n      \"home_Score\": 0,\r\n      \"home_Color\": \"Red\",\r\n      \"visitor_Score\": 0,\r\n      \"visitor_Color\": \"Green\",\r\n      \"status\": 2,\r\n      \"dt_Creation\": \"2019-06-22T19:53:19.767\",\r\n      \"matchOwnerId\": 1,\r\n      \"homeTeamId\": 71,\r\n      \"visitorId\": 72\r\n    },\r\n    \"homeTeam\": {\r\n      \"teamId\": 71,\r\n      \"name\": \"Team 1\",\r\n      \"color\": \"Red\"\r\n    },\r\n    \"visitorTeam\": {\r\n      \"teamId\": 72,\r\n      \"name\": \"Team 2\",\r\n      \"color\": \"Green\"\r\n    }\r\n  },\r\n  {\r\n    \"match\": {\r\n      \"matchId\": 47,\r\n      \"timeStart\": \"2019-06-24T10:47:43.903\",\r\n      \"timeEnd\": \"2019-07-02T16:41:21.263\",\r\n      \"home_Score\": 0,\r\n      \"home_Color\": \"Aqua\",\r\n      \"visitor_Score\": 0,\r\n      \"visitor_Color\": \"Blue\",\r\n      \"status\": 2,\r\n      \"dt_Creation\": \"2019-06-23T18:25:04.147\",\r\n      \"matchOwnerId\": 1,\r\n      \"homeTeamId\": 93,\r\n      \"visitorId\": 94\r\n    },\r\n    \"homeTeam\": {\r\n      \"teamId\": 93,\r\n      \"name\": \"Example 1\",\r\n      \"color\": \"Aqua\"\r\n    },\r\n    \"visitorTeam\": {\r\n      \"teamId\": 94,\r\n      \"name\": \"Example 2\",\r\n      \"color\": \"Blue\"\r\n    }\r\n  },\r\n  {\r\n    \"match\": {\r\n      \"matchId\": 51,\r\n      \"timeStart\": \"2019-06-24T20:01:34.337\",\r\n      \"timeEnd\": \"2019-06-24T20:02:13.963\",\r\n      \"home_Score\": 1,\r\n      \"home_Color\": \"Green\",\r\n      \"visitor_Score\": 0,\r\n      \"visitor_Color\": \"Red\",\r\n      \"status\": 2,\r\n      \"dt_Creation\": \"2019-06-24T20:01:21.903\",\r\n      \"matchOwnerId\": 1,\r\n      \"homeTeamId\": 101,\r\n      \"visitorId\": 102\r\n    },\r\n    \"homeTeam\": {\r\n      \"teamId\": 101,\r\n      \"name\": \"Test 1\",\r\n      \"color\": \"Green\"\r\n    },\r\n    \"visitorTeam\": {\r\n      \"teamId\": 102,\r\n      \"name\": \"Test 2\",\r\n      \"color\": \"Red\"\r\n    }\r\n  },\r\n  {\r\n    \"match\": {\r\n      \"matchId\": 56,\r\n      \"timeStart\": \"2019-06-27T21:46:48.257\",\r\n      \"timeEnd\": \"2019-06-27T21:47:42.063\",\r\n      \"home_Score\": 1,\r\n      \"home_Color\": \"Green\",\r\n      \"visitor_Score\": 1,\r\n      \"visitor_Color\": \"Red\",\r\n      \"status\": 2,\r\n      \"dt_Creation\": \"2019-06-27T21:46:31.02\",\r\n      \"matchOwnerId\": 1,\r\n      \"homeTeamId\": 111,\r\n      \"visitorId\": 112\r\n    },\r\n    \"homeTeam\": {\r\n      \"teamId\": 111,\r\n      \"name\": \"Group 1\",\r\n      \"color\": \"Green\"\r\n    },\r\n    \"visitorTeam\": {\r\n      \"teamId\": 112,\r\n      \"name\": \"Group 2\",\r\n      \"color\": \"Red\"\r\n    }\r\n  },\r\n  {\r\n    \"match\": {\r\n      \"matchId\": 59,\r\n      \"timeStart\": \"2019-07-09T09:15:06.71\",\r\n      \"timeEnd\": \"2019-11-17T12:39:56.453\",\r\n      \"home_Score\": 0,\r\n      \"home_Color\": \"Green\",\r\n      \"visitor_Score\": 0,\r\n      \"visitor_Color\": \"Red\",\r\n      \"status\": 2,\r\n      \"dt_Creation\": \"2019-07-09T09:14:46.32\",\r\n      \"matchOwnerId\": 1,\r\n      \"homeTeamId\": 117,\r\n      \"visitorId\": 118\r\n    },\r\n    \"homeTeam\": {\r\n      \"teamId\": 117,\r\n      \"name\": \"Team A\",\r\n      \"color\": \"Green\"\r\n    },\r\n    \"visitorTeam\": {\r\n      \"teamId\": 118,\r\n      \"name\": \"Team B\",\r\n      \"color\": \"Red\"\r\n    }\r\n  }\r\n]",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "match/getPreviousMatchByID",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\r\n  \"match\": {\r\n    \"matchId\": 36,\r\n    \"timeStart\": \"2019-06-22T19:53:33.023\",\r\n    \"timeEnd\": \"2019-06-22T19:56:48.59\",\r\n    \"home_Score\": 0,\r\n    \"home_Color\": \"Red\",\r\n    \"visitor_Score\": 0,\r\n    \"visitor_Color\": \"Green\",\r\n    \"status\": 2,\r\n    \"dt_Creation\": \"2019-06-22T19:53:19.767\",\r\n    \"matchOwnerId\": 1,\r\n    \"homeTeamId\": 71,\r\n    \"visitorId\": 72\r\n  },\r\n  \"homeTeam\": {\r\n    \"teamId\": 71,\r\n    \"name\": \"Team 1\",\r\n    \"color\": \"Red\"\r\n  },\r\n  \"visitorTeam\": {\r\n    \"teamId\": 72,\r\n    \"name\": \"Team 2\",\r\n    \"color\": \"Green\"\r\n  },\r\n  \"homeMembers\": [\r\n    {\r\n      \"teamId\": 71,\r\n      \"memberID\": 205,\r\n      \"status\": 0,\r\n      \"role\": 2,\r\n      \"number\": 12,\r\n      \"name\": \"Player 1\"\r\n    }\r\n  ],\r\n  \"visitorMembers\": [\r\n    {\r\n      \"teamId\": 72,\r\n      \"memberID\": 206,\r\n      \"status\": 0,\r\n      \"role\": 1,\r\n      \"number\": 11,\r\n      \"name\": \"Team 2\"\r\n    }\r\n  ],\r\n  \"events\": [\r\n    {\r\n      \"matchID\": 36,\r\n      \"userID\": 12,\r\n      \"eventType\": 3,\r\n      \"dateTime\": \"2019-06-22T19:56:30.48\"\r\n    },\r\n    {\r\n      \"matchID\": 36,\r\n      \"userID\": 12,\r\n      \"eventType\": 2,\r\n      \"dateTime\": \"2019-06-22T19:56:46.26\"\r\n    }\r\n  ]\r\n}",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "match/createMatchEvents",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "true",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "match/deleteMatch",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "true",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "user/resetPassword",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "true",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "user/changePassword",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "true",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "user/getUserInfo",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\r\n    \"userID\": 1,\r\n    \"username\": \"user1\",\r\n    \"email\": \"user1@email.com\"\r\n}",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "user/getAllUsers",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "[\r\n  {\r\n    \"userID\": 1,\r\n    \"username\": \"user1\",\r\n    \"email\": \"user1@email.com\"\r\n  },\r\n  {\r\n    \"userID\": 2,\r\n    \"username\": \"user2\",\r\n    \"email\": \"user2@email.com\"\r\n  }\r\n]",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "label": ""
+                            }
+                        ],
+                        "enabled": true
+                    }
+                ],
+                "proxyMode": false,
+                "proxyHost": "",
+                "https": false,
+                "cors": true,
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "text/plain"
+                    }
+                ],
+                "lastMigration": 9
+            }
+        }
+    ]
+}

@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ereferee.Views.SignInPage" NavigationPage.HasNavigationBar="False">
+             x:Class="ereferee.Views.AuthenticationViews.SignInPage" NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">

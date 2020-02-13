@@ -4,7 +4,7 @@ namespace ereferee.Models
 {
     public class Team
     {
-        [JsonProperty("teamId")]
+        [JsonProperty("id")]
         public int Id { get; set; }
 
         [JsonProperty("name")]
