@@ -32,13 +32,13 @@ namespace ereferee.Views.GameViews.PreviousGames
         {
             Task<string> resultTask = RestConnector.GetDataFromApi(RestConnector.PreviousGames);
             var result = await resultTask;
-            var matches = JsonConvert.DeserializeObject<List<GameData>>(result);
+            var matches = JsonConvert.DeserializeObject<List<Game>>(result);
             MatchesList.ItemsSource = matches;
         }
 
         private void MatchesList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var match = e.SelectedItem as GameData;
+            var match = e.SelectedItem as Game;
             Navigation.PushAsync(new PreviousMatchDetailsPage(match));
         }
 

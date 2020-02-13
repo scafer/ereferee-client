@@ -25,6 +25,9 @@ namespace ereferee
         public static string matchPart;
         public static string description;
 
+        public static string homeColor;
+        public static string visitorColor;
+
         public App()
         {
             InitializeComponent();

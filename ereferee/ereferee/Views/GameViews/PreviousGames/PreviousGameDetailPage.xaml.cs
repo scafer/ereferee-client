@@ -13,13 +13,13 @@ namespace ereferee.Views.GameViews.PreviousGames
     public partial class PreviousMatchDetailsPage : ContentPage
     {
         GameData _game;
+        private Game g;
 
-        public PreviousMatchDetailsPage(GameData game)
+        public PreviousMatchDetailsPage(Game game)
         {
             InitializeComponent();
 
-            this._game = game;
-            BindingContext = game;
+            this.g = game;
         }
 
         protected override void OnAppearing()
@@ -31,7 +31,7 @@ namespace ereferee.Views.GameViews.PreviousGames
 
         private async void GetMatchDetails()
         {
-            Task<string> resultTask = Game.GetGameDataById(_game.Game.Id);
+            Task<string> resultTask = Game.GetGameDataById(g.Id);
             string result = await resultTask;
 
             _game = JsonConvert.DeserializeObject<GameData>(result);

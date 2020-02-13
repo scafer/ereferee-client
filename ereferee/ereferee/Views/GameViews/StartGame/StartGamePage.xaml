@@ -25,22 +25,22 @@
                 <Label Text="Game Details" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Creation Date:" FontAttributes="Bold"/>
-                    <Label Text="{Binding match.CreationDate}" />
+                    <Label Text="{Binding Game.CreationDate}" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Home Team Color:" FontAttributes="Bold"/>
-                    <Label Text="{Binding match.HomeColor}" />
+                    <Label Text="{Binding Game.HomeColor}" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Visitor Team Color" FontAttributes="Bold"/>
-                    <Label Text="{Binding match.VisitorColor}" />
+                    <Label Text="{Binding Game.VisitorColor}" />
                 </StackLayout>
                 <BoxView HeightRequest="1" Color="Black"/>
 
                 <Label Text="Home Team Details" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Name:" FontAttributes="Bold"/>
-                    <Label Text="{Binding homeTeam.Name}" />
+                    <Label Text="{Binding HomeTeam.Name}" />
                 </StackLayout>
 
                 <Label Text="Team Members:" FontAttributes="Bold"/>

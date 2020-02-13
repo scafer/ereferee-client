@@ -39,11 +39,15 @@ namespace ereferee.Views.GameViews.CreateGame
         private void ColorPicker_Home_SelectedIndexChanged(object sender, EventArgs e)
         {
             boxView_home.Color = App.GetColor(sender);
+            var picker = (Picker)sender;
+            App.visitorColor = picker.SelectedItem.ToString();
         }
 
         private void ColorPicker_Visitor_SelectedIndexChanged(object sender, EventArgs e)
         {
             boxView_visitor.Color = App.GetColor(sender);
+            var picker = (Picker)sender; 
+            App.homeColor = picker.SelectedItem.ToString();
         }
 
         private string GetDate(string dateStart, string timeStart)

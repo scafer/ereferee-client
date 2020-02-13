@@ -26,22 +26,22 @@
                 <Label Text="Game Details" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Label Text="{Binding Match.HomeScore}" FontSize="Medium" FontAttributes="Bold"/>
+                    <Label Text="{Binding Game.HomeScore}" FontSize="Medium" FontAttributes="Bold"/>
                     <Label Text="  -  " FontSize="Medium" FontAttributes="Bold"/>
-                    <Label Text="{Binding Match.VisitorScore}" FontSize="Medium" FontAttributes="Bold"/>
+                    <Label Text="{Binding Game.VisitorScore}" FontSize="Medium" FontAttributes="Bold"/>
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Creation Date:" FontAttributes="Bold"/>
-                    <Label Text="{Binding Match.CreationDate}" />
+                    <Label Text="{Binding Game.CreationDate}" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Home Team Color:" FontAttributes="Bold"/>
-                    <Label Text="{Binding Match.HomeColor}" />
+                    <Label Text="{Binding Game.HomeColor}" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Visitor Team Color" FontAttributes="Bold"/>
-                    <Label Text="{Binding Match.VisitorColor}" />
+                    <Label Text="{Binding Game.VisitorColor}" />
                 </StackLayout>
                 <BoxView HeightRequest="1" Color="Black"/>
 
@@ -102,7 +102,7 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Vertical" Padding="1">
-                                    <Label Text="{Binding MemberId, StringFormat='Member Id: {0}'}"/>
+                                    <Label Text="{Binding AthleteId, StringFormat='Member Id: {0}'}"/>
                                     <Label Text="{Binding DateTime, StringFormat='Date Time: {0}'}"/>
                                     <Label Text="{Binding Reg, StringFormat='Reg: {0}'}"/>
                                     <Label Text="{Binding EventDescription, StringFormat='Description: {0}'}"/>
