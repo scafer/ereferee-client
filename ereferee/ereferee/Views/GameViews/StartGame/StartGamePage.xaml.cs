@@ -12,13 +12,14 @@ namespace ereferee.Views.GameViews.StartGame
     public partial class StartMatchPage : ContentPage
     {
         GameData _game;
+        Game g;
         int matchType;
 
-        public StartMatchPage(GameData game, int type)
+        public StartMatchPage(Game g, int type)
         {
             InitializeComponent();
-            this._game = game;
-            BindingContext = game;
+            this.g = g;
+            //BindingContext = game;
 
             matchType = type;
         }
@@ -29,7 +30,7 @@ namespace ereferee.Views.GameViews.StartGame
 
             if (matchType == 0)
             {
-                Task<string> resultTask = Game.GetGameDataById(_game.Game.Id);
+                Task<string> resultTask = Game.GetGameDataById(g.Id);
                 string result = await resultTask;
 
                 _game = JsonConvert.DeserializeObject<GameData>(result);
@@ -37,7 +38,7 @@ namespace ereferee.Views.GameViews.StartGame
             }
             else
             {
-                Task<string> resultTask = Game.GetGameDataById(_game.Game.Id);
+                Task<string> resultTask = Game.GetGameDataById(g.Id);
                 string result = await resultTask;
 
                 _game = JsonConvert.DeserializeObject<GameData>(result);

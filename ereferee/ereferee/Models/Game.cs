@@ -50,26 +50,19 @@ namespace ereferee.Models
                 { RestConnector.MatchKeys[0], matchId.ToString() }
             };
 
-            Task<string> response = RestConnector.PostDataToApi(values, RestConnector.StartGame);
+            Task<string> response = RestConnector.PostDataToApi(values, RestConnector.StartGame + "?gameId=" + matchId);
             return await response;
         }
 
-        public static async Task<string> Finish(int matchId, int homeScore, int visitorScore)
+        public static async Task<string> Finish(Game game)
         {
-            var values = new Dictionary<string, string>
-            {
-                { RestConnector.MatchKeys[0], matchId.ToString() },
-                { RestConnector.MatchKeys[6], homeScore.ToString() },
-                { RestConnector.MatchKeys[7], visitorScore.ToString() }
-            };
-
-            Task<string> response = RestConnector.PostDataToApi(values, RestConnector.FinishGame);
+            Task<string> response = RestConnector.PostObjectToApi(game, RestConnector.FinishGame);
             return await response;
         }
 
         public static async Task<string> GetGameDataById(int id)
         {
-            Task<string> response = RestConnector.GetDataFromApi(RestConnector.GameDataById + "?matchID=" + id);
+            Task<string> response = RestConnector.GetDataFromApi(RestConnector.GameDataById + "?gameId=" + id);
             return await response;
         }
 
@@ -80,7 +73,7 @@ namespace ereferee.Models
                 { RestConnector.MatchKeys[0], id.ToString() }
             };
 
-            Task<string> response = RestConnector.PostDataToApi(values, RestConnector.DeleteGame);
+            Task<string> response = RestConnector.PostDataToApi(values, RestConnector.DeleteGame + "?gameId=" + id);
             return await response;
         }
     }

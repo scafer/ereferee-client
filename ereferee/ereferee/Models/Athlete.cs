@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 
 namespace ereferee.Models
 {
@@ -8,25 +7,28 @@ namespace ereferee.Models
         [JsonProperty("id")]
         public int Id { get; set; }
 
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
         [JsonProperty("teamId")]
         public int TeamId { get; set; }
 
+        [JsonProperty("athleteId")]
+        public int AthleteId { get; set; }
+
         [JsonProperty("status")]
-        public int Status { get; set; }
+        public string Status { get; set; }
 
         [JsonProperty("role")]
-        public int Role { get; set; }
+        public string Role { get; set; }
 
         [JsonProperty("number")]
         public int Number { get; set; }
 
         [JsonProperty("dayStart")]
-        public DateTime DayStart { get; set; }
+        public string DayStart { get; set; }
 
         [JsonProperty("dayEnd")]
         public string DayEnd { get; set; }
-
-        [JsonProperty("name")]
-        public string Name { get; set; }
     }
 }

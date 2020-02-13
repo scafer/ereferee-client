@@ -34,7 +34,7 @@ namespace ereferee.Views.GameViews.StartGame
         {
             Task<string> resultTask = RestConnector.GetDataFromApi(RestConnector.PendingGames);
             var result = await resultTask;
-            var matches = JsonConvert.DeserializeObject<List<GameData>>(result);
+            var matches = JsonConvert.DeserializeObject<List<Game>>(result);
 
             PendingMatchesList.ItemsSource = matches;
         }
@@ -43,14 +43,14 @@ namespace ereferee.Views.GameViews.StartGame
         {
             Task<string> resultTask = RestConnector.GetDataFromApi(RestConnector.ActiveGames);
             var result = await resultTask;
-            var matches = JsonConvert.DeserializeObject<List<GameData>>(result);
+            var matches = JsonConvert.DeserializeObject<List<Game>>(result);
 
             ActiveMatchesList.ItemsSource = matches;
         }
 
         private void PendingMatchesList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var match = e.SelectedItem as GameData;
+            var match = e.SelectedItem as Game;
             Navigation.PushAsync(new StartMatchPage(match, 0));
         }
 
@@ -67,7 +67,7 @@ namespace ereferee.Views.GameViews.StartGame
 
         private void ActiveMatchesList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var match = e.SelectedItem as GameData;
+            var match = e.SelectedItem as Game;
             Navigation.PushAsync(new StartMatchPage(match, 1));
         }
 

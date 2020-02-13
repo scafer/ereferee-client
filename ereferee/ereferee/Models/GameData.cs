@@ -6,7 +6,7 @@ namespace ereferee.Models
 {
     public class GameData
     {
-        [JsonProperty("Game")]
+        [JsonProperty("game")]
         public Game? Game { get; set; }
 
         [JsonProperty("homeTeam")]

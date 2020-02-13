@@ -49,7 +49,7 @@ namespace ereferee.Views.GameViews.CreateGame
                 teamMember.Number = int.Parse(MemberNumber.Text);
 
                 string roleName = MemberRolePicker.Items[MemberRolePicker.SelectedIndex];
-                teamMember.Role = App.GetMemberRole(roleName);
+                teamMember.Role = App.GetMemberRole(roleName).ToString();
 
                 _members.Add(teamMember);
                 MembersList.ItemsSource = _members;

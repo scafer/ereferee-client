@@ -33,6 +33,9 @@ namespace ereferee.Views.GameViews.CreateGame
         {
             try
             {
+                _gameWithTeamsAndMembers.Game.HomeColor = "White";
+                _gameWithTeamsAndMembers.Game.VisitorColor = "Black";
+
                 Task<string> resultTask = RestConnector.PostObjectToApi(_gameWithTeamsAndMembers, RestConnector.CreateGame);
                 string result = await resultTask;
 

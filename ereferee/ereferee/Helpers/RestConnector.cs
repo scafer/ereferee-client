@@ -15,7 +15,7 @@ namespace ereferee.Helpers
 
         //Game
         public const string CreateGame = "/api/Game/createGameWithTeams";
-        public const string StartGame = "​/api​/Game​/startGame";
+        public const string StartGame = "​/api/Game/startGame";
         public const string FinishGame = "/api/Game/finishGame";
         public const string GameDataById = "/api/Game/gameDataById";
         public const string PendingGames = "/api/Game/pendingGames";

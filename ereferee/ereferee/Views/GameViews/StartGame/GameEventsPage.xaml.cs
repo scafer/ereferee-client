@@ -66,7 +66,9 @@ namespace ereferee.Views.GameViews.StartGame
             {
                 try
                 {
-                    var resultTask = Game.Finish(App.Game.Game.Id, App.homeScore, App.visitorScore);
+                    App.Game.Game.HomeScore = App.homeScore;
+                    App.Game.Game.VisitorScore = App.visitorScore;
+                    var resultTask = Game.Finish(App.Game.Game);
                     await resultTask;
                     await Navigation.PushAsync(new MainMenuPage());
                 }
