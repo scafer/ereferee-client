@@ -1,6 +1,5 @@
 ﻿using ereferee.Helpers;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ereferee.Models
@@ -35,8 +34,14 @@ namespace ereferee.Models
         {
             var evt = new Event
             {
-                AthleteId = memberId, EventDescription = description, EventType = eventType, GameId = matchId, Id = 0,
-                Reg = "", Time = matchTime, UserId = 1
+                AthleteId = memberId,
+                EventDescription = description,
+                EventType = eventType,
+                GameId = matchId,
+                Id = 0,
+                Reg = "",
+                Time = matchTime,
+                UserId = 1
             };
 
             Task<string> response = RestConnector.PostObjectToApi(evt, RestConnector.RegisterEvent);
@@ -45,7 +50,7 @@ namespace ereferee.Models
 
         public static async Task<string> Add(int eventType, int matchId, string matchTime)
         {
-            var evt = new Event {EventType = eventType, GameId = matchId, Time = matchTime, UserId = 1};
+            var evt = new Event { EventType = eventType, GameId = matchId, Time = matchTime, UserId = 1 };
 
             Task<string> response = RestConnector.PostObjectToApi(evt, RestConnector.RegisterEvent);
             return await response;

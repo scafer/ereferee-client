@@ -46,7 +46,7 @@ namespace ereferee.Views.GameViews.CreateGame
         private void ColorPicker_Visitor_SelectedIndexChanged(object sender, EventArgs e)
         {
             boxView_visitor.Color = App.GetColor(sender);
-            var picker = (Picker)sender; 
+            var picker = (Picker)sender;
             App.homeColor = picker.SelectedItem.ToString();
         }
 
