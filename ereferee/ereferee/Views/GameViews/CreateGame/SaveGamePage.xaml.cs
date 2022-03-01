@@ -1,7 +1,7 @@
-﻿using ereferee.Helpers;
-using ereferee.Models;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using ereferee.Helpers;
+using ereferee.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

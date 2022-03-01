@@ -1,8 +1,8 @@
-﻿using ereferee.Helpers;
+﻿using System;
+using System.Threading.Tasks;
+using ereferee.Helpers;
 using ereferee.Models;
 using Newtonsoft.Json;
-using System;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

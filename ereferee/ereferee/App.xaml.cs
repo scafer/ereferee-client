@@ -1,6 +1,6 @@
-﻿using ereferee.Models;
+﻿using System.Collections.Generic;
+using ereferee.Models;
 using ereferee.Views.AuthenticationViews;
-using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace ereferee

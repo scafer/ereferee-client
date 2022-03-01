@@ -1,5 +1,5 @@
-﻿using ereferee.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ereferee.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

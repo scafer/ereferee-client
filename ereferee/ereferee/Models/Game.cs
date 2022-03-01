@@ -1,7 +1,7 @@
-﻿using ereferee.Helpers;
-using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using ereferee.Helpers;
+using Newtonsoft.Json;
 
 namespace ereferee.Models
 {

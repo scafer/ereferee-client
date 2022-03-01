@@ -1,14 +1,14 @@
-﻿using ereferee.Helpers;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
+using System.Text;
+using System.Windows.Input;
+using ereferee.Helpers;
 using ereferee.Models;
 using ereferee.Views;
 using ereferee.Views.AuthenticationViews;
 using ereferee.Views.UserViews;
 using Newtonsoft.Json;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace ereferee.ViewModels

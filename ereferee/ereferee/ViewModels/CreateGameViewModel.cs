@@ -1,10 +1,10 @@
-﻿using ereferee.Models;
-using ereferee.Views.GameViews.CreateGame;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using ereferee.Models;
+using ereferee.Views.GameViews.CreateGame;
 using Xamarin.Forms;
 
 namespace ereferee.ViewModels

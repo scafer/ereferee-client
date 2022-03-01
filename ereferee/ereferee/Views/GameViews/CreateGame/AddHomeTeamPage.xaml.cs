@@ -1,7 +1,7 @@
-﻿using ereferee.Models;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using ereferee.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

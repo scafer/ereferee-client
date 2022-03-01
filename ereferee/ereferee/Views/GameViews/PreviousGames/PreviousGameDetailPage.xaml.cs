@@ -1,11 +1,11 @@
-﻿using ereferee.Models;
+﻿using System.Threading.Tasks;
+using ereferee.Models;
 using Microcharts;
 using Newtonsoft.Json;
 using SkiaSharp;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Entry = Microcharts.Entry;
+using Entry = Microcharts.ChartEntry;
 
 namespace ereferee.Views.GameViews.PreviousGames
 {
